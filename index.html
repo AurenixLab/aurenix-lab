@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aurenix Lab | FiveM Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#0e0f12;--card:#15161b;--text:#e7e7ea;--muted:#a6a8ad;
+ --gold:#e8c66a;--gold2:#c9a646;--teal:#30d5c8;--violet:#8a7dff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(1200px 520px at 50% -180px,rgba(232,198,106,.14),transparent 60%),var(--bg);
+ color:var(--text);font:500 16px/1.6 "Poppins",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;}
+.al-nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 6vw;background:rgba(10,10,12,.55);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+.al-brand{display:flex;align-items:center;gap:12px}
+.al-logo{width:44px;height:44px;border-radius:12px;object-fit:cover;box-shadow:0 8px 24px -14px rgba(232,198,106,.7)}
+.al-title{font-weight:800}
+.al-sub{font-size:12px;color:var(--muted)}
+.al-nav a{color:var(--text);text-decoration:none;margin:0 10px;font-weight:600;opacity:.9}
+.al-nav a:hover{opacity:1;color:var(--gold)}
+.al-lang{cursor:pointer;font-weight:800;color:var(--gold);margin-left:6px}
+.al-hero{padding:96px 6vw 60px;display:grid;gap:28px;place-items:center;text-align:center}
+.al-hero h1{font-size:clamp(34px,6vw,64px);line-height:1.06;margin:0;
+background:linear-gradient(90deg,var(--gold),var(--teal),var(--violet),var(--gold));
+-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 10s linear infinite}
+.al-hero p{max-width:880px;color:var(--muted)}
+.al-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.al-btn{padding:12px 20px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+text-decoration:none;font-weight:800;display:inline-flex;gap:10px;align-items:center;transition:.25s}
+.al-btn--gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#161616;border:none;box-shadow:0 16px 42px -18px rgba(232,198,106,.6)}
+.al-btn--gold:hover{filter:brightness(1.08)}
+.al-btn--ghost{color:var(--text)}
+.al-btn--ghost:hover{border-color:rgba(255,255,255,.24);transform:translateY(-1px)}
+section{padding:64px 6vw}
+.al-title-lg{font-size:28px;font-weight:800;margin:0 0 8px}
+.al-subtle{color:var(--muted);margin:0 0 28px}
+.al-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.al-card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));
+border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+.al-card h3{margin:6px 0 6px;font-size:18px;color:#fff}
+.al-card p{margin:0;color:var(--muted);font-size:14px}
+.al-store-frame{width:100%;height:1800px;border:0;border-radius:16px;background:var(--card)}
+.al-store-fallback{margin-top:14px;font-size:14px;color:var(--muted)}
+.al-store-link{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:12px;
+background:linear-gradient(135deg,var(--teal),var(--violet));color:#0d0d0f;text-decoration:none;font-weight:900}
+footer{padding:48px 6vw 60px;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.35)}
+.al-footer-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:8px}
+.al-footer-links a{color:var(--text);opacity:.85;text-decoration:none}
+.al-footer-links a:hover{opacity:1;color:var(--gold)}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+</style>
+</head>
+<body>
+
+<nav class="al-nav">
+ <div class="al-brand">
+   <img class="al-logo" id="alLogo" src="https://cdn.discordapp.com/attachments/1387170451373166622/1429543049700049029/ChatGPT_Image_19._Okt._2025_19_46_05.png" alt="Aurenix Lab Logo"/>
+   <div><div class="al-title">Aurenix Lab</div><div class="al-sub" data-en="Premium FiveM Development" data-de="Premium FiveM Entwicklung">Premium FiveM Development</div></div>
+ </div>
+ <div>
+   <a href="#services" data-en="Services" data-de="Leistungen">Services</a>
+   <a href="#store" data-en="Store" data-de="Shop">Store</a>
+   <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+   <span class="al-lang" id="alLang">🇬🇧 EN</span>
+ </div>
+</nav>
+
+<header class="al-hero reveal">
+ <h1 data-en="Build Better. Run Faster." data-de="Bau es besser. Lass es schneller laufen.">Build Better. Run Faster.</h1>
+ <p data-en="Custom FiveM scripts, secure events and elegant NUI – engineered for performance, stability and style."
+    data-de="Individuelle FiveM-Skripte, sichere Events und elegante NUI – entwickelt für Performance, Stabilität und Stil.">
+   Custom FiveM scripts, secure events and elegant NUI – engineered for performance, stability and style.
+ </p>
+ <div class="al-actions">
+   <a class="al-btn al-btn--gold" href="#store">🛒 Open Store</a>
+   <a class="al-btn al-btn--ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Join Discord</a>
+ </div>
+</header>
+
+<section id="services" class="reveal">
+ <h2 class="al-title-lg">Services</h2>
+ <p class="al-subtle">From ideas to live servers — end-to-end engineering for FiveM.</p>
+ <div class="al-grid">
+  <div class="al-card"><h3>💻 Custom Scripts</h3><p>ESX / QBCore / Standalone. Clean architecture, events, docs.</p></div>
+  <div class="al-card"><h3>⚙️ Server Setup</h3><p>Install, optimize, migrate frameworks, improve stability.</p></div>
+  <div class="al-card"><h3>🎨 UI / NUI</h3><p>Modern HUDs, menus and inventories with smooth micro-interactions.</p></div>
+  <div class="al-card"><h3>🛡️ Security & QA</h3><p>Permissions, anti-exploit, code reviews, test builds.</p></div>
+ </div>
+</section>
+
+<section id="store" class="reveal">
+ <h2 class="al-title-lg">Store</h2>
+ <p class="al-subtle">Our Tebex shop – directly integrated below:</p>
+ <iframe class="al-store-frame" src="https://aurenix-lab-webstore.tebex.io" loading="lazy"></iframe>
+ <div class="al-store-fallback">
+  If the store does not load:
+  <a class="al-store-link" href="https://aurenix-lab-webstore.tebex.io" target="_blank">🛒 Open in new tab</a>
+ </div>
+</section>
+
+<section id="contact" class="reveal">
+ <h2 class="al-title-lg">Contact</h2>
+ <p class="al-subtle">Business inquiries, support & collaborations.</p>
+ <div class="al-actions" style="justify-content:center">
+   <a class="al-btn al-btn--gold" href="mailto:aurenixlab@gmail.com">📧 aurenixlab@gmail.com</a>
+   <a class="al-btn al-btn--ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord Support</a>
+ </div>
+</section>
+
+<footer class="reveal">
+ <div style="text-align:center;font-weight:800;margin-bottom:6px">AURENIX LAB</div>
+ <div class="al-footer-links">
+  <a href="#imprint">Imprint</a>
+  <a href="#policy">Privacy Policy</a>
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank">Support</a>
+ </div>
+ <div style="margin-top:10px;color:var(--muted)">© 2025 Aurenix Lab • All rights reserved</div>
+</footer>
+
+<section id="imprint" class="reveal" style="padding-top:24px">
+ <h2 class="al-title-lg">Imprint</h2>
+ <p class="al-subtle">Aurenix Lab • FiveM Development Studio • Email: aurenixlab@gmail.com • Discord: discord.gg/RNzyXTuepc</p>
+</section>
+<section id="policy" class="reveal" style="padding-top:24px">
+ <h2 class="al-title-lg">Privacy Policy</h2>
+ <p class="al-subtle">We do not use tracking cookies. Payments handled by Tebex Ltd. according to their privacy policy.</p>
+</section>
+
+<script>
+// Scroll reveal
+(() => {
+ const els=document.querySelectorAll(".reveal");
+ const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+ },{rootMargin:"-12% 0px"});
+ els.forEach(el=>io.observe(el));
+})();
+// Logo fallback
+(() => {
+ const img=document.getElementById("alLogo");
+ if(!img)return;
+ img.addEventListener("error",()=>{
+  const box=document.createElement("div");
+  Object.assign(box.style,{
+   width:"44px",height:"44px",borderRadius:"12px",display:"grid",placeItems:"center",
+   fontWeight:"900",color:"#0e0f12",
+   background:"linear-gradient(135deg,var(--gold),var(--teal))"
+  });
+  box.textContent="AL";img.replaceWith(box);
+ },{once:true});
+})();
+// Language switch
+(() => {
+ let lang="en";
+ const switcher=document.getElementById("alLang");
+ const nodes=document.querySelectorAll("[data-en]");
+ const apply=()=>nodes.forEach(n=>n.innerHTML=n.getAttribute(`data-${lang}`));
+ apply();
+ if(switcher){
+  switcher.addEventListener("click",()=>{
+   lang=lang==="en"?"de":"en";
+   switcher.textContent=lang==="en"?"🇬🇧 EN":"🇩🇪 DE";
+   apply();
+  });
+ }
+})();
+</script>
+
+</body>
+</html>
