@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurenix Lab | Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="home-fab" href="index.html">⟵ Home</a>
+
+<nav class="nav">
+  <div class="brand"><img src="logo.png" alt="Logo"><div><div class="t">Aurenix Lab</div><div style="font-size:12px;color:#a6a8ad" data-en="Shop" data-de="Shop">Shop</div></div></div>
+  <div>
+    <a href="index.html" data-en="Home" data-de="Startseite">Startseite</a>
+    <a href="shop.html">Shop</a>
+    <a href="docs.html" data-en="Docs" data-de="Dokumentation">Dokumentation</a>
+    <a href="about.html" data-en="About" data-de="Über Uns">Über Uns</a>
+    <a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
+  </div>
+  <button class="lang-btn" id="lang">🇩🇪 DE</button>
+</nav>
+
+<header class="hero shop-hero">
+  <h1 class="h-title" data-en="Webstore" data-de="Webstore">Webstore</h1>
+  <p class="h-sub" data-en="Embedded via Tebex. Use Focus Mode while reading products." data-de="Eingebettet via Tebex. Nutze den Focus-Mode beim Lesen der Produkte.">
+    Eingebettet via Tebex. Nutze den Focus-Mode beim Lesen der Produkte.
+  </p>
+  <div class="focusbar">
+    <button class="focus-toggle" id="focusBtn" data-en="🎯 Focus Mode" data-de="🎯 Focus-Mode">🎯 Focus-Mode</button>
+    <a class="focus-toggle" href="https://aurenix-lab-webstore.tebex.io" target="_blank" data-en="🔗 Open in new tab" data-de="🔗 Im neuen Tab öffnen">🔗 Im neuen Tab öffnen</a>
+  </div>
+</header>
+
+<section class="section reveal">
+  <iframe class="shop-frame" src="https://aurenix-lab-webstore.tebex.io" loading="lazy"></iframe>
+</section>
+
+<div class="dim" id="dim"></div>
+
+<footer>© 2025 Aurenix Lab • <a href="contact.html" data-en="Imprint · Privacy · Support" data-de="Impressum · Datenschutz · Support">Impressum · Datenschutz · Support</a></footer>
+
+<script>
+/* Reveal */
+const els=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"}); els.forEach(el=>io.observe(el));
+/* Parallax */
+window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelector('.hero').style.setProperty('--parallax', Math.min(y*0.2,80)+'px')});
+/* Focus Mode */
+const dim=document.getElementById('dim'); const btn=document.getElementById('focusBtn'); btn.addEventListener('click',()=>{dim.classList.toggle('on'); btn.textContent=dim.classList.contains('on')?(btn.dataset.de?'🕶️ Focus aus':'🕶️ Focus off'):btn.dataset.de||'🎯 Focus Mode';});
+/* Lang */
+let lang='de'; const l=document.getElementById('lang'); const apply=()=>document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]); apply(); l.addEventListener('click',()=>{lang=lang==='de'?'en':'de'; l.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN'; apply();});
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurenix Lab | Kontakt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="brand"><img src="logo.png" alt="Logo"><div><div class="t">Aurenix Lab</div><div style="font-size:12px;color:#a6a8ad" data-en="Contact" data-de="Kontakt">Kontakt</div></div></div>
+  <div>
+    <a href="index.html" data-en="Home" data-de="Startseite">Startseite</a><a href="shop.html">Shop</a><a href="docs.html" data-en="Docs" data-de="Dokumentation">Dokumentation</a><a href="about.html" data-en="About" data-de="Über Uns">Über Uns</a><a href="contact.html">Kontakt</a>
+  </div>
+  <button class="lang-btn" id="lang">🇩🇪 DE</button>
+</nav>
+
+<section class="section reveal">
+  <h2 class="title" data-en="Get in touch" data-de="Kontakt aufnehmen">Kontakt aufnehmen</h2>
+  <p class="lead" data-en="Business inquiries, support & collaborations."
+     data-de="Business-Anfragen, Support & Kooperationen.">Business-Anfragen, Support & Kooperationen.</p>
+  <div class="grid">
+    <div class="card"><h3>📧 E-Mail</h3><p><a href="mailto:aurenixlab@gmail.com" style="color:var(--gold);text-decoration:none">aurenixlab@gmail.com</a></p></div>
+    <div class="card"><h3>💬 Discord</h3><p><a href="https://discord.gg/RNzyXTuepc" target="_blank" style="color:var(--gold);text-decoration:none">discord.gg/RNzyXTuepc</a></p></div>
+    <div class="card"><h3>🛒 Shop</h3><p><a href="shop.html" style="color:var(--gold);text-decoration:none">aurenix-lab-webstore.tebex.io</a></p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <h2 class="title" data-en="Legal" data-de="Rechtliches">Rechtliches</h2>
+  <div class="doc-container">
+    <div class="doc-card">
+      <h3 data-en="Imprint" data-de="Impressum">Impressum</h3>
+      <p class="doc-meta" data-en="Aurenix Lab • FiveM Development Studio • Email: aurenixlab@gmail.com • Discord: discord.gg/RNzyXTuepc"
+         data-de="Aurenix Lab • FiveM Development Studio • E-Mail: aurenixlab@gmail.com • Discord: discord.gg/RNzyXTuepc">
+         Aurenix Lab • FiveM Development Studio • E-Mail: aurenixlab@gmail.com • Discord: discord.gg/RNzyXTuepc
+      </p>
+    </div>
+    <div class="doc-card">
+      <h3 data-en="Privacy Policy" data-de="Datenschutz">Datenschutz</h3>
+      <p data-en="We do not use tracking cookies. Payments are processed via Tebex Ltd. according to their policy."
+         data-de="Wir setzen keine Tracking-Cookies ein. Zahlungen erfolgen über Tebex Ltd. gemäß deren Datenschutzrichtlinie.">
+         Wir setzen keine Tracking-Cookies ein. Zahlungen erfolgen über Tebex Ltd. gemäß deren Datenschutzrichtlinie.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Aurenix Lab • <a href="#" onclick="window.history.back();return false;" data-en="Back" data-de="Zurück">Zurück</a></footer>
+
+<script>
+const els=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"}); els.forEach(el=>io.observe(el));
+let lang='de'; const btn=document.getElementById('lang'); const apply=()=>document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]); apply(); btn.addEventListener('click',()=>{lang=lang==='de'?'en':'de'; btn.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN'; apply();});
+</script>
+</body>
+</html>

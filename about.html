@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurenix Lab | About</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="brand"><img src="logo.png" alt="Logo"><div><div class="t">Aurenix Lab</div><div style="font-size:12px;color:#a6a8ad" data-en="About" data-de="Über Uns">Über Uns</div></div></div>
+  <div>
+    <a href="index.html" data-en="Home" data-de="Startseite">Startseite</a><a href="shop.html">Shop</a><a href="docs.html" data-en="Docs" data-de="Dokumentation">Dokumentation</a><a href="about.html">Über Uns</a><a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
+  </div>
+  <button class="lang-btn" id="lang">🇩🇪 DE</button>
+</nav>
+
+<section class="section reveal">
+  <h2 class="title" data-en="Who we are" data-de="Wer wir sind">Wer wir sind</h2>
+  <p class="lead" data-en="Aurenix Lab is a FiveM development studio delivering performance-focused scripts, modern NUI and production-ready server setups."
+     data-de="Aurenix Lab ist ein FiveM-Development-Studio für performante Scripts, moderne NUI und produktionsreife Server-Setups.">
+     Aurenix Lab ist ein FiveM-Development-Studio für performante Scripts, moderne NUI und produktionsreife Server-Setups.
+  </p>
+</section>
+
+<section class="section reveal">
+  <h2 class="title" data-en="Values" data-de="Werte">Werte</h2>
+  <ul class="list">
+    <li data-en="⚡ Performance-first — measurable optimizations" data-de="⚡ Performance-first — messbare Optimierungen">⚡ Performance-first — messbare Optimierungen</li>
+    <li data-en="🛡️ Security mindset — permissions, validation, clean events" data-de="🛡️ Security-Mindset — Permissions, Validierung, saubere Events">🛡️ Security-Mindset — Permissions, Validierung, saubere Events</li>
+    <li data-en="🎨 UX quality — calm UIs and readability" data-de="🎨 UX-Qualität — ruhige UIs & Lesbarkeit">🎨 UX-Qualität — ruhige UIs & Lesbarkeit</li>
+    <li data-en="📦 Delivery — versioning, changelogs, planned updates" data-de="📦 Delivery — Versionierung, Changelogs, planbare Updates">📦 Delivery — Versionierung, Changelogs, planbare Updates</li>
+  </ul>
+</section>
+
+<section class="section reveal">
+  <h2 class="title" data-en="Tech Stack" data-de="Tech-Stack">Tech-Stack</h2>
+  <ul class="list">
+    <li>Lua, JS/TS, HTML/CSS (NUI)</li>
+    <li>ESX / QBCore / Standalone</li>
+    <li>MySQL/MariaDB, ox_lib, ox_inventory</li>
+    <li>GitHub, Tebex</li>
+  </ul>
+</section>
+
+<footer>© 2025 Aurenix Lab • <a href="contact.html" data-en="Imprint · Privacy · Support" data-de="Impressum · Datenschutz · Support">Impressum · Datenschutz · Support</a></footer>
+
+<script>
+const els=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"}); els.forEach(el=>io.observe(el));
+let lang='de'; const btn=document.getElementById('lang'); const apply=()=>document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]); apply(); btn.addEventListener('click',()=>{lang=lang==='de'?'en':'de'; btn.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN'; apply();});
+</script>
+</body>
+</html>

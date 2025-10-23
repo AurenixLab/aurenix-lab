@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurenix Lab | Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="brand"><img src="logo.png" alt="Logo"><div><div class="t">Aurenix Lab</div><div style="font-size:12px;color:#a6a8ad" data-en="Docs" data-de="Dokumentation">Dokumentation</div></div></div>
+  <div>
+    <a href="index.html" data-en="Home" data-de="Startseite">Startseite</a><a href="shop.html">Shop</a><a href="docs.html">Dokumentation</a><a href="about.html" data-en="About" data-de="Über Uns">Über Uns</a><a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
+  </div>
+  <button class="lang-btn" id="lang">🇩🇪 DE</button>
+</nav>
+
+<section class="section doc-container reveal">
+  <h2 class="title" data-en="Script Library" data-de="Script-Bibliothek">Script-Bibliothek</h2>
+  <p class="sub" data-en="Add a card per script. Each card can contain install steps, events, exports and screenshots."
+     data-de="Lege pro Script eine Karte an. Enthält Installation, Events/Exports und Screenshots.">
+     Lege pro Script eine Karte an. Enthält Installation, Events/Exports und Screenshots.
+  </p>
+
+  <!-- Beispielkarte 1 -->
+  <div class="doc-card">
+    <h3>AL Banking</h3>
+    <div class="doc-meta" data-en="Framework: QBCore • Standalone-ready • Last update: 2025-10-19"
+         data-de="Framework: QBCore • Standalone-ready • Letztes Update: 19.10.2025">
+         Framework: QBCore • Standalone-ready • Letztes Update: 19.10.2025
+    </div>
+    <p data-en="Stable banking with audit trail, transfers, faction accounts and clean event design."
+       data-de="Stabiles Banking mit Audit-Trail, Transfers, Fraktions-Konten und sauberem Event-Design.">
+       Stabiles Banking mit Audit-Trail, Transfers, Fraktions-Konten und sauberem Event-Design.
+    </p>
+    <details><summary data-en="Installation" data-de="Installation">Installation</summary>
+      <pre class="code" data-en="1) Put resource into resources/[al]/al-banking
+2) ensure al-banking in server.cfg
+3) Adjust config.lua (ESX/QBCore mapping)"
+      data-de="1) Resource nach resources/[al]/al-banking
+2) ensure al-banking in server.cfg
+3) config.lua anpassen (ESX/QBCore Mapping)">1) Resource nach resources/[al]/al-banking
+2) ensure al-banking in server.cfg
+3) config.lua anpassen (ESX/QBCore Mapping)</pre>
+    </details>
+    <details><summary data-en="Events / Exports" data-de="Events / Exports">Events / Exports</summary>
+      <pre class="code" data-en="exports['al-banking']:GetBalance(playerId)
+TriggerServerEvent('al-banking:transfer', target, amount)"
+      data-de="exports['al-banking']:GetBalance(playerId)
+TriggerServerEvent('al-banking:transfer', target, amount)">exports['al-banking']:GetBalance(playerId)
+TriggerServerEvent('al-banking:transfer', target, amount)</pre>
+    </details>
+  </div>
+
+  <!-- Beispielkarte 2 -->
+  <div class="doc-card">
+    <h3>AL Revive</h3>
+    <div class="doc-meta" data-en="Framework: ESX/QBCore • Optimized • Last update: 2025-10-19"
+         data-de="Framework: ESX/QBCore • Optimiert • Letztes Update: 19.10.2025">
+         Framework: ESX/QBCore • Optimiert • Letztes Update: 19.10.2025
+    </div>
+    <p data-en="Lightweight revive system with clean checks and UI prompt."
+       data-de="Leichtes Revive-System mit sauberen Checks und UI-Prompt.">
+       Leichtes Revive-System mit sauberen Checks und UI-Prompt.
+    </p>
+    <details><summary data-en="Configuration" data-de="Konfiguration">Konfiguration</summary>
+      <pre class="code" data-en="Config.Hotkey = 'E'
+Config.AllowedJobs = {'ambulance'}"
+      data-de="Config.Hotkey = 'E'
+Config.AllowedJobs = {'ambulance'}">Config.Hotkey = 'E'
+Config.AllowedJobs = {'ambulance'}</pre>
+    </details>
+  </div>
+</section>
+
+<footer>© 2025 Aurenix Lab • <a href="contact.html" data-en="Imprint · Privacy · Support" data-de="Impressum · Datenschutz · Support">Impressum · Datenschutz · Support</a></footer>
+
+<script>
+const els=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"}); els.forEach(el=>io.observe(el));
+let lang='de'; const btn=document.getElementById('lang'); const apply=()=>document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]); apply(); btn.addEventListener('click',()=>{lang=lang==='de'?'en':'de'; btn.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN'; apply();});
+</script>
+</body>
+</html>
