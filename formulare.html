@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Formulare - Aurenix Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<nav class="nav"><div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div>
+<div class="links">
+  <span class="lang-switch"><span class="lang-btn" data-lang="de" onclick="setLang('de')">🇩🇪 DE</span><span class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</span></span>
+  <a href="index.html" data-de="Startseite" data-en="Home">Startseite</a>
+  <a href="formulare.html" class="active" data-de="Formulare" data-en="Forms">Formulare</a>
+</div></nav>
+<main class="container">
+  <h1 data-de="Formulare" data-en="Forms">Formulare</h1>
+  <p data-de="Wähle das passende Formular für dein Anliegen." data-en="Choose the form that fits your request.">Wähle das passende Formular für dein Anliegen.</p>
+  <div class="grid">
+    <div class="card"><h3 data-de="🤝 Partnerschaft" data-en="🤝 Partnership">🤝 Partnerschaft</h3><p data-de="Kooperation & Server-Partnerschaft" data-en="Cooperation & server partnership">Kooperation & Server-Partnerschaft</p><a class="btn btn-gold" href="form-partner.html" data-de="Formular öffnen" data-en="Open form">Formular öffnen</a></div>
+    <div class="card"><h3 data-de="💼 Teambewerbung" data-en="💼 Team Application">💼 Teambewerbung</h3><p data-de="Bewirb dich für Development/Support" data-en="Apply for Development/Support">Bewirb dich für Development/Support</p><a class="btn btn-gold" href="form-team.html" data-de="Formular öffnen" data-en="Open form">Formular öffnen</a></div>
+    <div class="card"><h3 data-de="🧩 Custom Script / Service" data-en="🧩 Custom Script / Service">🧩 Custom Script / Service</h3><p data-de="Individuelle Scripting-Anfrage" data-en="Custom scripting request">Individuelle Scripting-Anfrage</p><a class="btn btn-gold" href="form-service.html" data-de="Formular öffnen" data-en="Open form">Formular öffnen</a></div>
+    <div class="card"><h3 data-de="🐞 Bugreport" data-en="🐞 Bug report">🐞 Bugreport</h3><p data-de="Fehler und Logs melden" data-en="Report issues and logs">Fehler und Logs melden</p><a class="btn btn-gold" href="form-bug.html" data-de="Formular öffnen" data-en="Open form">Formular öffnen</a></div>
+  </div>
+</main>
+<footer class="footer">© 2025 Aurenix Lab</footer>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-de]').forEach(el=>{
+    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+  });
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector(`.lang-btn[data-lang="${lang}"]`); if(btn) btn.classList.add('active');
+}
+const initLang = localStorage.getItem('lang') || 'de';
+document.addEventListener('DOMContentLoaded',()=>setLang(initLang));
+</script>
+
+</body></html>

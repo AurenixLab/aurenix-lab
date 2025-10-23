@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Bugreport - Aurenix Lab</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
+<nav class="nav"><div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div>
+<div class="links"><span class="lang-switch"><span class="lang-btn" data-lang="de" onclick="setLang('de')">🇩🇪 DE</span><span class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</span></span>
+<a href="index.html" data-de="Startseite" data-en="Home">Startseite</a><a href="formulare.html" class="active" data-de="Formulare" data-en="Forms">Formulare</a></div></nav>
+<main class="container">
+  <div class="form-card">
+    <h1 data-de="Bugreport" data-en="Bug report">Bugreport</h1>
+    <form id="theForm">
+
+<label data-de="Betroffenes Script *" data-en="Affected script *">Betroffenes Script *</label><input name="script" required placeholder="z. B. zs_banking">
+<label data-de="Beschreibung *" data-en="Description *">Beschreibung *</label><textarea name="desc" required></textarea>
+<label data-de="Reproduktion (Schritte)" data-en="Reproduction steps">Reproduktion (Schritte)</label><textarea name="steps"></textarea>
+<label data-de="Discord-Tag *" data-en="Discord tag *">Discord-Tag *</label><input name="discord" required>
+<label data-de="E-Mail *" data-en="Email *">E-Mail *</label><input name="email" type="email" required>
+
+      <label><input type="checkbox" id="agree" required> <span data-de="Ich stimme der" data-en="I agree to the"></span> <a href="policy.html" target="_blank" data-de="Datenschutzerklärung" data-en="privacy policy">Datenschutzerklärung</a>.</label>
+      <br><button class="btn btn-gold" type="submit" data-de="Absenden" data-en="Submit">Absenden</button>
+      <div class="success" id="ok" data-de="✅ Erfolgreich gesendet!" data-en="✅ Sent successfully!">✅ Erfolgreich gesendet!</div>
+    </form>
+  </div>
+</main>
+<footer class="footer">© 2025 Aurenix Lab</footer>
+<script>
+const API = 'https://aurenix-lab-production.up.railway.app/send';
+document.getElementById('theForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  if(!document.getElementById('agree').checked){ alert((localStorage.getItem('lang')||'de')==='de'?'Bitte Datenschutz bestätigen.':'Please accept privacy policy.'); return; }
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  data.topic = 'Bug report';
+  try{
+    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    if(r.ok){ document.getElementById('ok').style.display='block'; e.target.reset(); }
+    else alert('Error');
+  }catch(err){ alert('Network error'); }
+});
+</script>
+
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-de]').forEach(el=>{
+    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+  });
+  localStorage.setItem('lang', lang);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector(`.lang-btn[data-lang="${lang}"]`); if(btn) btn.classList.add('active');
+}
+const initLang = localStorage.getItem('lang') || 'de';
+document.addEventListener('DOMContentLoaded',()=>setLang(initLang));
+</script>
+
+</body></html>
