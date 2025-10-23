@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aurenix Lab | FiveM Development</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,10 +13,18 @@
 <nav class="nav">
   <div class="brand">
     <img src="logo.png" alt="Aurenix Lab Logo">
-    <div><div class="t">Aurenix Lab</div><div style="font-size:12px;color:#a6a8ad" data-en="Premium FiveM Development" data-de="Premium FiveM Entwicklung">Premium FiveM Entwicklung</div></div>
+    <div>
+      <div class="t">Aurenix Lab</div>
+      <div style="font-size:12px;color:#a6a8ad"
+           data-en="Premium FiveM Development"
+           data-de="Premium FiveM Entwicklung">
+           Premium FiveM Entwicklung
+      </div>
+    </div>
   </div>
   <div>
     <a href="index.html" data-en="Home" data-de="Startseite">Startseite</a>
+    <a href="services.html" data-en="Services" data-de="Services">Services</a>
     <a href="shop.html" data-en="Shop" data-de="Shop">Shop</a>
     <a href="docs.html" data-en="Docs" data-de="Dokumentation">Dokumentation</a>
     <a href="about.html" data-en="About" data-de="Über Uns">Über Uns</a>
@@ -24,46 +34,78 @@
 </nav>
 
 <header class="hero" id="hero">
-  <h1 class="h-title" data-en="Build Better. Run Faster." data-de="Bau es besser. Lauf schneller.">Bau es besser. Lauf schneller.</h1>
-  <p class="h-sub" data-en="Custom FiveM scripts, secure events and elegant NUI — engineered for performance, stability and style."
-     data-de="Individuelle FiveM-Skripte, sichere Events und elegante NUI — entwickelt für Performance, Stabilität und Stil.">
-     Individuelle FiveM-Skripte, sichere Events und elegante NUI — entwickelt für Performance, Stabilität und Stil.
+  <h1 class="h-title">
+    <span id="typed-text"></span><span class="cursor">|</span>
+  </h1>
+
+  <p class="h-sub"
+     data-en="Custom FiveM scripts, secure events and elegant NUI — engineered for performance and style."
+     data-de="Individuelle FiveM-Skripte, sichere Events und elegante NUI — entwickelt für Performance und Stil.">
+     Individuelle FiveM-Skripte, sichere Events und elegante NUI — entwickelt für Performance und Stil.
   </p>
+
   <div class="cta">
-    <a class="btn btn-gold" href="shop.html" data-en="🛒 Open Shop" data-de="🛒 Zum Shop">🛒 Zum Shop</a>
-    <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Join Discord" data-de="💬 Discord">💬 Discord</a>
+    <a class="btn btn-gold" href="shop.html"
+       data-en="🛒 Open Shop"
+       data-de="🛒 Zum Shop">🛒 Zum Shop</a>
+    <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank"
+       data-en="💬 Discord"
+       data-de="💬 Discord">💬 Discord</a>
   </div>
 </header>
 
 <section class="section reveal">
-  <h2 class="title" data-en="Why Aurenix?" data-de="Warum Aurenix?">Warum Aurenix?</h2>
-  <p class="sub" data-en="Clean code, stable systems, modern UI. We deliver production-ready resources — fast, secure, documented."
-     data-de="Sauberer Code, stabile Systeme, modernes UI. Wir liefern produktionsreife Ressourcen – schnell, sicher, dokumentiert.">
-     Sauberer Code, stabile Systeme, modernes UI. Wir liefern produktionsreife Ressourcen – schnell, sicher, dokumentiert.
+  <h2 class="title" data-en="Highlights" data-de="Highlights">Highlights</h2>
+  <p class="sub"
+     data-en="A compact studio for high-quality FiveM scripts, UIs and deployable server setups."
+     data-de="Ein kompaktes Studio für hochwertige FiveM-Scripts, UIs und deploybare Server-Setups.">
+     Ein kompaktes Studio für hochwertige FiveM-Scripts, UIs und deploybare Server-Setups.
   </p>
   <div class="grid">
-    <div class="card"><h3>⚡ Performance</h3><p data-en="Profiling, optimization & low resmon." data-de="Profiling, Optimierung & niedriger Resmon.">Profiling, Optimierung & niedriger Resmon.</p></div>
-    <div class="card"><h3 data-en="🛡️ Security" data-de="🛡️ Sicherheit">🛡️ Sicherheit</h3><p data-en="Events, permissions, anti-exploit." data-de="Events, Berechtigungen, Anti-Exploit.">Events, Berechtigungen, Anti-Exploit.</p></div>
-    <div class="card"><h3>🎨 UI / NUI</h3><p data-en="Readable HUDs, intuitive menus, elegant NUI." data-de="Lesbare HUDs, intuitive Menüs, elegante NUI.">Lesbare HUDs, intuitive Menüs, elegante NUI.</p></div>
-    <div class="card"><h3 data-en="📦 Delivery" data-de="📦 Delivery">📦 Delivery</h3><p data-en="Versioned, documented, update-ready." data-de="Versioniert, dokumentiert, update-fähig.">Versioniert, dokumentiert, update-fähig.</p></div>
+    <div class="card"><span class="tag">UI/NUI</span><h3 data-en="Elegant Interfaces" data-de="Elegante Interfaces">Elegante Interfaces</h3><p data-en="Readable HUDs, smooth menus, minimal noise." data-de="Lesbare HUDs, flüssige Menüs, wenig Noise.">Lesbare HUDs, flüssige Menüs, wenig Noise.</p></div>
+    <div class="card"><span class="tag">PERF</span><h3 data-en="Performance First" data-de="Performance First">Performance First</h3><p data-en="Low resmon, profiling, clean events." data-de="Niedriger Resmon, Profiling, saubere Events.">Niedriger Resmon, Profiling, saubere Events.</p></div>
+    <div class="card"><span class="tag">SEC</span><h3 data-en="Secure by Design" data-de="Secure by Design">Secure by Design</h3><p data-en="Permissions, validation and good boundaries." data-de="Permissions, Validierung und klare Grenzen.">Permissions, Validierung und klare Grenzen.</p></div>
   </div>
 </section>
 
 <footer>
-  <span data-en="© 2025 Aurenix Lab • All rights reserved" data-de="© 2025 Aurenix Lab • Alle Rechte vorbehalten">© 2025 Aurenix Lab • Alle Rechte vorbehalten</span>
-  · <a href="contact.html" data-en="Imprint · Privacy · Support" data-de="Impressum · Datenschutz · Support">Impressum · Datenschutz · Support</a>
+  <span data-en="© 2025 Aurenix Lab • All rights reserved"
+        data-de="© 2025 Aurenix Lab • Alle Rechte vorbehalten">
+        © 2025 Aurenix Lab • Alle Rechte vorbehalten</span>
+  · <a href="contact.html"
+        data-en="Imprint · Privacy · Support"
+        data-de="Impressum · Datenschutz · Support">
+        Impressum · Datenschutz · Support</a>
 </footer>
 
 <script>
-/* Reveal + Parallax */
+// ===== Scroll-Reveal =====
 const els=[...document.querySelectorAll('.reveal')];
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"}); els.forEach(el=>io.observe(el));
-window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelector('.hero').style.setProperty('--parallax', Math.min(y*0.2,80)+'px')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:"-12% 0px"});
+els.forEach(el=>io.observe(el));
+window.addEventListener('scroll',()=>{const y=window.scrollY;document.querySelector('.hero').style.setProperty('--parallax',Math.min(y*0.2,80)+'px')});
 
-/* Language switch (default DE) */
-let lang='de'; const btn=document.getElementById('lang');
-const apply=()=>document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);
-apply(); btn.addEventListener('click',()=>{lang=lang==='de'?'en':'de'; btn.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN'; apply();});
+// ===== Typing Animation + Glow =====
+const phrases=[
+ {en:"We Build What Your Server Needs", de:"Wir entwickeln, was dein Server braucht"},
+ {en:"Innovative FiveM Solutions — Built with Precision", de:"Innovative FiveM-Lösungen — mit Präzision entwickelt"},
+ {en:"Aurenix Lab — Your FiveM Development Studio", de:"Aurenix Lab — Dein FiveM-Development-Studio"}
+];
+let lang='de';const textEl=document.getElementById('typed-text');const cursorEl=document.querySelector('.cursor');const langBtn=document.getElementById('lang');
+let index=0;let charIndex=0;let typingSpeed=75;let deletingSpeed=40;let delayBetween=1600;let deleting=false;
+function type(){
+ const phrase=phrases[index][lang];
+ if(!deleting && charIndex<=phrase.length){textEl.textContent=phrase.substring(0,charIndex++);setTimeout(type,typingSpeed);}
+ else if(deleting && charIndex>=0){textEl.textContent=phrase.substring(0,charIndex--);setTimeout(type,deletingSpeed);}
+ else{deleting=!deleting;if(!deleting)index=(index+1)%phrases.length;setTimeout(type,delayBetween);}
+}
+type();
+setInterval(()=>cursorEl.classList.toggle('active'),400);
+langBtn.addEventListener('click',()=>{lang=lang==='de'?'en':'de';langBtn.textContent=lang==='de'?'🇩🇪 DE':'🇬🇧 EN';});
+
+// ===== Random Glow Shimmer =====
+function randomGlow(){textEl.style.filter=`drop-shadow(0 0 ${Math.random()*3+3}px rgba(232,198,106,0.5))`;}
+setInterval(randomGlow,250);
 </script>
 </body>
 </html>
