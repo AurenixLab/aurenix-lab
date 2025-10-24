@@ -16,7 +16,5 @@
     tick();
     if(cursor){ setInterval(()=>cursor.classList.toggle('dim'),420); }
   }
-  document.addEventListener('DOMContentLoaded',()=>{
-    document.querySelectorAll('[data-phrases]').forEach(startType);
-  });
+  document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('[data-phrases]').forEach(startType));
 })();

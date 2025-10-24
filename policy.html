@@ -5,11 +5,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head><body>
 <header class="header"><div class="header-inner"><div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div></div></header>
+<section class="hero"><div><img class="logo-big" src="assets/logo.png"><h1 class="type" data-phrases='["Privacy made simple.","We only use your data to answer you.","No third-party selling."]'></h1><span class="cursor">|</span></div></section>
 <section class="section"><div class="container">
   <div class="card">
-    <h3>Privacy Policy (Short)</h3>
-    <p>We use your submitted data only to process your request. No sale or third-party sharing. Contact: aurenixlab@gmail.com</p>
+    <h3 data-en="Privacy Policy (Short)" data-de="Datenschutz (Kurzfassung)">Privacy Policy (Short)</h3>
+    <p data-en="We use your submitted data only to process your request. No sale or third-party sharing. Contact: aurenixlab@gmail.com"
+       data-de="Wir verwenden deine Angaben ausschließlich zur Bearbeitung deiner Anfrage. Keine Weitergabe an Dritte. Kontakt: aurenixlab@gmail.com">
+       We use your submitted data only to process your request. No sale or third-party sharing. Contact: aurenixlab@gmail.com
+    </p>
   </div>
 </div></section>
 <footer class="footer">© 2025 Aurenix Lab</footer>
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{ const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de'); if(lang==='de'&&de) el.textContent=de; else if(en) el.textContent=en; });
+  localStorage.setItem('lang', lang);
+}
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
+</script>
+<script src="type.js"></script>
 </body></html>

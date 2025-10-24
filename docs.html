@@ -8,7 +8,7 @@
 <header class="header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix">
+      <img src="assets/logo.png" alt="Aurenix Logo">
       <div class="t">Aurenix Lab</div>
     </div>
     <nav class="nav">
@@ -34,15 +34,34 @@
     <h1 class="type" data-phrases='["Your scripts. Fully documented.", "Clear. Structured. Developer friendly.", "Built for performance."]'></h1><span class="cursor">|</span>
     <p class="subtle" data-en="Documentation hub for Aurenix resources." data-de="Dokumentationshub für Aurenix-Ressourcen.">Documentation hub for Aurenix resources.</p>
     <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
     </div>
   </div>
 </section>
 
-<section class="section"><div class="container">
-  <div class="card"><h3>Docs Hub</h3><p>Place your script docs here (banking, identity, voicerange…). With TOC & search.</p></div>
-</div></section>
+<section class="section">
+  <div class="container" style="display:grid;grid-template-columns:280px 1fr;gap:20px">
+    <aside class="card" style="position:sticky;top:88px;height:max-content">
+      <h3 data-en="Scripts" data-de="Skripte">Scripts</h3>
+      <ul style="list-style:none;padding-left:0;line-height:1.9">
+        <li><a href="docs-zs_banking.html">zs_banking</a></li>
+        <li><a href="docs-zs_identity.html">zs_identity</a></li>
+        <li><a href="docs-zs_jobstars.html">zs_jobstars</a></li>
+        <li><a href="docs-zs_voicerangepma.html">zs_voicerangepma</a></li>
+      </ul>
+    </aside>
+    <main>
+      <div class="card">
+        <h3>Docs Hub</h3>
+        <p data-en="Select a script from the left to view its documentation."
+           data-de="Wähle links ein Script, um die Dokumentation zu sehen.">
+           Select a script from the left to view its documentation.
+        </p>
+      </div>
+    </main>
+  </div>
+</section>
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
@@ -53,18 +72,15 @@
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
-  });
-  document.querySelectorAll('[data-de]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
+    if(lang==='de' && de){ el.textContent = de; }
+    else if(en){ el.textContent = en; }
   });
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  setLang(localStorage.getItem('lang')||'en');
-});
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
 </script>
 <script src="type.js"></script>
 

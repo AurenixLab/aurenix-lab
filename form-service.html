@@ -8,7 +8,7 @@
 <header class="header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix">
+      <img src="assets/logo.png" alt="Aurenix Logo">
       <div class="t">Aurenix Lab</div>
     </div>
     <nav class="nav">
@@ -31,11 +31,11 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Fill the form carefully.", "We will reply via email or Discord.", "Thanks for your request!"]'></h1><span class="cursor">|</span>
+    <h1 class="type" data-phrases='["Tell us what you need.", "We\u2019ll scope it precisely.", "Built to perform."]'></h1><span class="cursor">|</span>
     <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">All fields marked * are required.</p>
     <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
     </div>
   </div>
 </section>
@@ -45,15 +45,15 @@
     <h3>Service / Custom Script</h3>
     <form id="f">
 
-<label>Name *</label><input name="name" required>
-<label>Discord *</label><input name="discord" required>
-<label>Email *</label><input type="email" name="email" required>
-<label>Framework</label><select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
-<label>Description *</label><textarea name="desc" required></textarea>
+<label data-en="Name *" data-de="Name *">Name *</label><input name="name" required>
+<label data-en="Discord *" data-de="Discord *">Discord *</label><input name="discord" required>
+<label data-en="Email *" data-de="E-Mail *">Email *</label><input type="email" name="email" required>
+<label data-en="Framework" data-de="Framework">Framework</label><select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
+<label data-en="Description *" data-de="Beschreibung *">Description *</label><textarea name="desc" required></textarea>
 
-      <label><input type="checkbox" id="agree" required> I accept the <a href="policy.html" target="_blank">privacy policy</a>.</label>
-      <br><button class="btn btn-gold" type="submit">Submit</button>
-      <div class="success" id="ok">✅ Sent successfully!</div>
+      <label><input type="checkbox" id="agree" required> <span data-en="I accept the " data-de="Ich akzeptiere die "></span><a href="policy.html" target="_blank" data-en="privacy policy" data-de="Datenschutzerklärung">privacy policy</a>.</label>
+      <br><button class="btn btn-gold" type="submit" data-en="Submit" data-de="Absenden">Submit</button>
+      <div class="success" id="ok" data-en="✅ Sent successfully!" data-de="✅ Erfolgreich gesendet!">✅ Sent successfully!</div>
     </form>
   </div>
 </div></section>
@@ -67,18 +67,15 @@
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
-  });
-  document.querySelectorAll('[data-de]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
+    if(lang==='de' && de){ el.textContent = de; }
+    else if(en){ el.textContent = en; }
   });
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  setLang(localStorage.getItem('lang')||'en');
-});
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
 </script>
 <script src="type.js"></script>
 
@@ -86,14 +83,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 const API = "https://aurenix-lab-production.up.railway.app/send";
 document.getElementById('f').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  if(!document.getElementById('agree').checked) return alert('Please accept the privacy policy');
+  if(!document.getElementById('agree').checked) return alert((localStorage.getItem('lang')||'en')==='de'?'Bitte Datenschutz bestätigen.':'Please accept the privacy policy');
   const data = Object.fromEntries(new FormData(e.target).entries());
   data.topic = "Service / Custom Script";
-  try {
-    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+  try{
+    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, mode:'cors', body: JSON.stringify(data) });
     if(r.ok) { document.getElementById('ok').style.display='block'; e.target.reset(); }
-    else alert('Error submitting form');
-  } catch(err) { alert('Network error'); }
+    else { const t=await r.text(); alert('Error: '+t); }
+  }catch(err){ alert('Network error: '+err.message); }
 });
 </script>
 </body></html>

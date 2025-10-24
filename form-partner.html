@@ -8,7 +8,7 @@
 <header class="header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix">
+      <img src="assets/logo.png" alt="Aurenix Logo">
       <div class="t">Aurenix Lab</div>
     </div>
     <nav class="nav">
@@ -31,11 +31,11 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Fill the form carefully.", "We will reply via email or Discord.", "Thanks for your request!"]'></h1><span class="cursor">|</span>
+    <h1 class="type" data-phrases='["Partnerships that make sense.", "Fair terms. Clear expectations.", "Let\u2019s grow together."]'></h1><span class="cursor">|</span>
     <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">All fields marked * are required.</p>
     <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
     </div>
   </div>
 </section>
@@ -45,17 +45,17 @@
     <h3>Partnership Request</h3>
     <form id="f">
 
-<label>Server name *</label><input name="servername" required>
-<label>Discord invite link *</label><input type="url" name="discordlink" placeholder="https://discord.gg/..." required>
-<label>Members (min. 500) *</label><input type="number" name="members" min="500" required>
-<label>Contact Discord *</label><input name="discord" required placeholder="YourTag#1234">
-<label>Email *</label><input type="email" name="email" required>
-<label>Age (min. 15) *</label><input type="number" name="age" min="15" required>
-<label>Description *</label><textarea name="desc" required></textarea>
+<label data-en="Server name *" data-de="Servername *">Server name *</label><input name="servername" required>
+<label data-en="Discord invite link *" data-de="Discord-Invite-Link *">Discord invite link *</label><input type="url" name="discordlink" placeholder="https://discord.gg/..." required>
+<label data-en="Members (min. 500) *" data-de="Mitglieder (mind. 500) *">Members (min. 500) *</label><input type="number" name="members" min="500" required>
+<label data-en="Contact Discord *" data-de="Kontakt-Discord *">Contact Discord *</label><input name="discord" required placeholder="YourTag#1234">
+<label data-en="Email *" data-de="E-Mail *">Email *</label><input type="email" name="email" required>
+<label data-en="Age (min. 15) *" data-de="Alter (mind. 15) *">Age (min. 15) *</label><input type="number" name="age" min="15" required>
+<label data-en="Description *" data-de="Beschreibung *">Description *</label><textarea name="desc" required></textarea>
 
-      <label><input type="checkbox" id="agree" required> I accept the <a href="policy.html" target="_blank">privacy policy</a>.</label>
-      <br><button class="btn btn-gold" type="submit">Submit</button>
-      <div class="success" id="ok">✅ Sent successfully!</div>
+      <label><input type="checkbox" id="agree" required> <span data-en="I accept the " data-de="Ich akzeptiere die "></span><a href="policy.html" target="_blank" data-en="privacy policy" data-de="Datenschutzerklärung">privacy policy</a>.</label>
+      <br><button class="btn btn-gold" type="submit" data-en="Submit" data-de="Absenden">Submit</button>
+      <div class="success" id="ok" data-en="✅ Sent successfully!" data-de="✅ Erfolgreich gesendet!">✅ Sent successfully!</div>
     </form>
   </div>
 </div></section>
@@ -69,18 +69,15 @@
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
-  });
-  document.querySelectorAll('[data-de]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
+    if(lang==='de' && de){ el.textContent = de; }
+    else if(en){ el.textContent = en; }
   });
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  setLang(localStorage.getItem('lang')||'en');
-});
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
 </script>
 <script src="type.js"></script>
 
@@ -88,14 +85,14 @@ document.addEventListener('DOMContentLoaded',()=>{
 const API = "https://aurenix-lab-production.up.railway.app/send";
 document.getElementById('f').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  if(!document.getElementById('agree').checked) return alert('Please accept the privacy policy');
+  if(!document.getElementById('agree').checked) return alert((localStorage.getItem('lang')||'en')==='de'?'Bitte Datenschutz bestätigen.':'Please accept the privacy policy');
   const data = Object.fromEntries(new FormData(e.target).entries());
   data.topic = "Partnership Request";
-  try {
-    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+  try{
+    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, mode:'cors', body: JSON.stringify(data) });
     if(r.ok) { document.getElementById('ok').style.display='block'; e.target.reset(); }
-    else alert('Error submitting form');
-  } catch(err) { alert('Network error'); }
+    else { const t=await r.text(); alert('Error: '+t); }
+  }catch(err){ alert('Network error: '+err.message); }
 });
 </script>
 </body></html>

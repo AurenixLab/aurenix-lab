@@ -22,17 +22,13 @@ const PORT = process.env.PORT || 3000;
 
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST, port: SMTP_PORT, secure: SMTP_PORT===465,
-  auth: EMAIL && PASS ? { user: EMAIL, pass: PASS } : undefined
+  auth: (EMAIL && PASS) ? { user: EMAIL, pass: PASS } : undefined
 });
 
 async function sendDiscordEmbed(title, payload){
   if(!DISCORD_WEBHOOK) return;
   const fields = Object.entries(payload).slice(0,10).map(([k,v])=>({name:k,value:String(v).slice(0,1000),inline:true}));
-  await fetch(DISCORD_WEBHOOK, {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({ username:"Aurenix Bot", embeds:[{ title, color:16766720, fields, timestamp:new Date().toISOString() }] })
-  });
+  await fetch(DISCORD_WEBHOOK, { method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify({ username:"Aurenix Bot", embeds:[{ title, color:16766720, fields, timestamp:new Date().toISOString() }] }) });
 }
 
 app.post("/send", async (req,res)=>{
@@ -40,19 +36,9 @@ app.post("/send", async (req,res)=>{
   const topic = data.topic || "Request";
   try{
     if(EMAIL && PASS){
-      await transporter.sendMail({
-        from: `"Aurenix Lab" <${EMAIL}>`,
-        to: EMAIL,
-        subject: `New ${topic}`,
-        html: `<h2>New ${topic}</h2><pre>${JSON.stringify(data,null,2)}</pre>`
-      });
+      await transporter.sendMail({ from: `"Aurenix Lab" <${EMAIL}>`, to: EMAIL, subject: `New ${topic}`, html: `<h2>New ${topic}</h2><pre>${JSON.stringify(data,null,2)}</pre>` });
       if(data.email){
-        await transporter.sendMail({
-          from: `"Aurenix Lab" <${EMAIL}>`,
-          to: data.email,
-          subject: "✅ We received your request",
-          html: `<p>Thanks for your message. We'll get back to you soon.</p><p>— Aurenix Lab</p>`
-        });
+        await transporter.sendMail({ from: `"Aurenix Lab" <${EMAIL}>`, to: data.email, subject: "✅ We received your request", html: `<p>Thanks for your message. We'll get back to you soon.</p><p>— Aurenix Lab</p>` });
       }
     }
     await sendDiscordEmbed(`📬 ${topic}`, data);

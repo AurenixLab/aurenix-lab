@@ -1,8 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aurenix Lab | Home</title>
+<title>Docs — zs_voicerangepma | Aurenix Lab</title>
 <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head><body>
 
@@ -17,10 +16,10 @@
         <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
         <button onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html" >Home</a>
       <a href="services.html" >Services</a>
       <a href="shop.html" >Shop</a>
-      <a href="docs.html" >Docs</a>
+      <a href="docs.html" class="active">Docs</a>
       <a href="forms.html" >Forms</a>
       <a href="about.html" >About</a>
       <a href="contact.html" >Contact</a>
@@ -32,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["We build what your server needs.", "Innovative FiveM solutions \u2014 built with precision.", "Aurenix Lab \u2014 your FiveM development studio."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Professional FiveM scripting, UI and server optimization." data-de="Professionelles FiveM-Scripting, UI und Server-Optimierung.">Professional FiveM scripting, UI and server optimization.</p>
+    <h1 class="type" data-phrases='["zs_voicerangepma \u2014 clear and fast.", "Events, exports & config.", "Built for ESX / QBCore."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Voice range (proximity) with PMA-voice." data-de="Sprachreichweite (Proximity) mit PMA-voice.">Voice range (proximity) with PMA-voice.</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
@@ -42,13 +41,31 @@
 </section>
 
 <section class="section">
-  <div class="container">
-    <h2 class="h2" data-en="Why Aurenix?" data-de="Warum Aurenix?">Why Aurenix?</h2>
-    <div class="grid">
-      <div class="card"><h3>⚡ Performance</h3><p>Optimized events & low resmon usage.</p></div>
-      <div class="card"><h3>🎨 Design</h3><p>Modern HUDs, menus and immersive UI.</p></div>
-      <div class="card"><h3>🔐 Security</h3><p>Clean permissions and stable code.</p></div>
-    </div>
+  <div class="container" style="display:grid;grid-template-columns:280px 1fr;gap:20px">
+    <aside class="card" style="position:sticky;top:88px;height:max-content">
+      <h3>Contents</h3>
+      <ol style="padding-left:16px;line-height:1.9">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#config">Config</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#exports">Exports</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+      </ol>
+    </aside>
+    <main>
+      <div class="card" id="overview"><h3>Overview</h3><pre>Shortcuts to toggle whisper/normal/shout; UI indicator.</pre></div>
+      <div class="card" id="install"><h3>Installation</h3><pre>1) resources/[aurenix]/zs_voicerangepma
+2) ensure pma-voice
+3) ensure zs_voicerangepma</pre></div>
+      <div class="card" id="config"><h3>Config</h3><pre>Config.Ranges = [2.0, 8.0, 16.0]
+Config.Default = 8.0</pre></div>
+      <div class="card" id="events"><h3>Events</h3><pre>RegisterCommand('vrange', function(src,args) ... end)
+TriggerEvent('zs_voicerangepma:set', range)</pre></div>
+      <div class="card" id="exports"><h3>Exports</h3><pre>exports['zs_voicerangepma']:GetRange()
+exports['zs_voicerangepma']:SetRange(range)</pre></div>
+      <div class="card" id="changelog"><h3>Changelog</h3><pre>v1.0.0  Initial release</pre></div>
+    </main>
   </div>
 </section>
 
