@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="de"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Aurenix Lab | Docs</title>
 <link rel="stylesheet" href="style.css">
@@ -13,16 +13,16 @@
     </div>
     <nav class="nav">
       <div class="lang">
-        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
-        <button onclick="setLang('de')">🇩🇪 DE</button>
+        <button onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" >Home</a>
-      <a href="services.html" >Services</a>
-      <a href="shop.html" >Shop</a>
-      <a href="docs.html" class="active">Docs</a>
-      <a href="forms.html" >Forms</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" >Contact</a>
+      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+      <a href="docs.html" class="active" data-en="Docs" data-de="Docs">Docs</a>
+      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -31,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Your scripts. Fully documented.", "Clear. Structured. Developer friendly.", "Built for performance."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Documentation hub for Aurenix resources." data-de="Dokumentationshub für Aurenix-Ressourcen.">Documentation hub for Aurenix resources.</p>
+    <h1 class="type" data-phrases-en='["Your scripts. Fully documented.", "Clear. Structured. Developer friendly.", "Built for performance."]' data-phrases-de='["Deine Scripts. Vollst\u00e4ndig dokumentiert.", "Klar. Strukturiert. Dev-freundlich.", "Auf Performance ausgelegt."]' data-phrases='["Deine Scripts. Vollst\u00e4ndig dokumentiert.", "Klar. Strukturiert. Dev-freundlich.", "Auf Performance ausgelegt."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Documentation hub for Aurenix resources." data-de="Dokumentations-Hub für Aurenix-Ressourcen.">Dokumentations-Hub für Aurenix-Ressourcen.</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
@@ -43,7 +43,7 @@
 <section class="section">
   <div class="container" style="display:grid;grid-template-columns:280px 1fr;gap:20px">
     <aside class="card" style="position:sticky;top:88px;height:max-content">
-      <h3 data-en="Scripts" data-de="Skripte">Scripts</h3>
+      <h3>Skripte</h3>
       <ul style="list-style:none;padding-left:0;line-height:1.9">
         <li><a href="docs-zs_banking.html">zs_banking</a></li>
         <li><a href="docs-zs_identity.html">zs_identity</a></li>
@@ -54,10 +54,7 @@
     <main>
       <div class="card">
         <h3>Docs Hub</h3>
-        <p data-en="Select a script from the left to view its documentation."
-           data-de="Wähle links ein Script, um die Dokumentation zu sehen.">
-           Select a script from the left to view its documentation.
-        </p>
+        <p>Wähle links ein Script, um die Dokumentation zu sehen.</p>
       </div>
     </main>
   </div>
@@ -65,22 +62,22 @@
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
-  <a href="policy.html">📄 Policy</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
-  <a href="contact.html">✉️ Contact</a>
+  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
+  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
 </footer>
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
     const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; }
-    else if(en){ el.textContent = en; }
+    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
   });
+  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
 </script>
 <script src="type.js"></script>
 

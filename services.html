@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="de"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Aurenix Lab | Services</title>
 <link rel="stylesheet" href="style.css">
@@ -13,16 +13,16 @@
     </div>
     <nav class="nav">
       <div class="lang">
-        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
-        <button onclick="setLang('de')">🇩🇪 DE</button>
+        <button onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" >Home</a>
-      <a href="services.html" class="active">Services</a>
-      <a href="shop.html" >Shop</a>
-      <a href="docs.html" >Docs</a>
-      <a href="forms.html" >Forms</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" >Contact</a>
+      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+      <a href="services.html" class="active" data-en="Services" data-de="Services">Services</a>
+      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -31,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Optimized. Efficient. Reliable.", "FiveM services that elevate your server.", "Custom development \u2014 made by Aurenix."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="From setup to custom resources — we build for results." data-de="Vom Setup bis zu Custom-Resources — wir liefern Ergebnisse.">From setup to custom resources — we build for results.</p>
+    <h1 class="type" data-phrases-en='["Optimized. Efficient. Reliable.", "FiveM services that elevate your server.", "Custom development \u2014 made by Aurenix."]' data-phrases-de='["Optimiert. Effizient. Zuverl\u00e4ssig.", "FiveM-Services, die deinen Server heben.", "Custom Development \u2014 made by Aurenix."]' data-phrases='["Optimiert. Effizient. Zuverl\u00e4ssig.", "FiveM-Services, die deinen Server heben.", "Custom Development \u2014 made by Aurenix."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="From setup to custom resources — we build for results." data-de="Vom Setup bis zu Custom-Resources — wir liefern Ergebnisse.">Vom Setup bis zu Custom-Resources — wir liefern Ergebnisse.</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
@@ -41,46 +41,44 @@
 </section>
 
 <section class="section"><div class="container">
-  <h2 class="h2" data-en="Services & Pricing" data-de="Services & Preise">Services & Pricing</h2>
+  <h2 class="h2">Services & Preise</h2>
 
 <div class="grid">
-  <div class="card"><h3>🖥️ Server Setup & Config</h3><p>FiveM install, DB (MySQL/MariaDB), performance tuning.</p><span class="price">€10 – €25</span></div>
-  <div class="card"><h3>🧩 Resources & Scripts</h3><p>ESX/QBCore custom install, configs, bugfixing.</p><span class="price">€5 – €20</span></div>
-  <div class="card"><h3>🧱 Framework Installation</h3><p>ESX / QBCore / Standalone, addon compatibility, migrations.</p><span class="price">€15 – €30</span></div>
-  <div class="card"><h3>🐞 Debugging</h3><p>Console & F8 analysis, crash fixes, client/server bugs.</p><span class="price">€10 – €25</span></div>
-  <div class="card"><h3>🎨 UI / HUD / Menus</h3><p>HUDs, loading screens, radial menus, inventory styling.</p><span class="price">€10 – €30</span></div>
-  <div class="card"><h3>📋 Whitelist & Roles</h3><p>Discord whitelist, admin roles, ACE permissions.</p><span class="price">€5 – €15</span></div>
-  <div class="card"><h3>📦 Custom Framework Builds</h3><p>Tailored ESX/QBCore stacks incl. modules.</p><span class="price">€25 – €60</span></div>
-  <div class="card"><h3>💾 Database Optimization & Backup</h3><p>Indexing, cleanup, backup strategies, migrations.</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>⚙️ Discord Automation</h3><p>Bot-Integration (reports, online players, status).</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>🌍 Translation & Localization</h3><p>Multi-language setup (EN/DE) for scripts & UI.</p><span class="price">€10 – €30</span></div>
-  <div class="card"><h3>🛡️ Anti-Cheat & Moderation</h3><p>EasyAdmin, bans, audit, logging.</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>🔧 Maintenance</h3><p>Troubleshooting, updates, uptime checks.</p><span class="price">€10 – €30</span></div>
+  <div class="card"><h3>🖥️ Server-Setup & Konfig</h3><p>FiveM-Installation, DB (MySQL/MariaDB), Performance-Tuning.</p><span class="price">€10 – €25</span></div>
+  <div class="card"><h3>🧩 Ressourcen & Scripts</h3><p>ESX/QBCore Install, Configs, Bugfixing.</p><span class="price">€5 – €20</span></div>
+  <div class="card"><h3>🧱 Framework-Installation</h3><p>ESX / QBCore / Standalone, Addon-Kompatibilität, Migrationen.</p><span class="price">€15 – €30</span></div>
+  <div class="card"><h3>🐞 Debugging</h3><p>Console & F8-Analyse, Crash-Fixes, Client/Server-Bugs.</p><span class="price">€10 – €25</span></div>
+  <div class="card"><h3>🎨 UI / HUD / Menüs</h3><p>HUDs, Loading Screens, Radialmenüs, Inventar-Styling.</p><span class="price">€10 – €30</span></div>
+  <div class="card"><h3>📋 Whitelist & Rollen</h3><p>Discord-Whitelist, Adminrollen, ACE-Permissions.</p><span class="price">€5 – €15</span></div>
+  <div class="card"><h3>📦 Custom Framework Builds</h3><p>Maßgeschneiderte ESX/QBCore-Stacks inkl. Module.</p><span class="price">€25 – €60</span></div>
+  <div class="card"><h3>💾 DB-Optimierung & Backups</h3><p>Indexing, Cleanup, Backup-Strategien, Migrationen.</p><span class="price">€15 – €40</span></div>
+  <div class="card"><h3>⚙️ Discord-Automation</h3><p>Bots (Reports, Online-Spieler, Status) & Webhooks.</p><span class="price">€15 – €40</span></div>
+  <div class="card"><h3>🚗 Fahrzeuge & Handling</h3><p>Addons einbauen, Tuning, Soundpacks, Livery-Setup.</p><span class="price">€15 – €50</span></div>
+  <div class="card"><h3>🛡️ Anti-Cheat & Moderation</h3><p>EasyAdmin, Bans, Logging, Audit.</p><span class="price">€15 – €40</span></div>
+  <div class="card"><h3>🔧 Maintenance</h3><p>Troubleshooting, Updates, Uptime-Checks.</p><span class="price">€10 – €30</span></div>
 </div>
-<p class="subtle" style="text-align:center;margin-top:12px" data-en="* Prices are reference values and may vary by scope." data-de="* Preise sind Richtwerte und variieren je nach Aufwand.">
-  * Prices are reference values and may vary by scope.
-</p>
+<p class="subtle" style="text-align:center;margin-top:12px">* Preise sind Richtwerte und variieren je nach Aufwand.</p>
 
 </div></section>
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
-  <a href="policy.html">📄 Policy</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
-  <a href="contact.html">✉️ Contact</a>
+  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
+  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
 </footer>
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
     const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; }
-    else if(en){ el.textContent = en; }
+    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
   });
+  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
 </script>
 <script src="type.js"></script>
 

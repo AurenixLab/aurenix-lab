@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="de"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Service / Custom Script - Aurenix Lab</title>
 <link rel="stylesheet" href="style.css">
@@ -13,16 +13,16 @@
     </div>
     <nav class="nav">
       <div class="lang">
-        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
-        <button onclick="setLang('de')">🇩🇪 DE</button>
+        <button onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" >Home</a>
-      <a href="services.html" >Services</a>
-      <a href="shop.html" >Shop</a>
-      <a href="docs.html" >Docs</a>
-      <a href="forms.html" class="active">Forms</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" >Contact</a>
+      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+      <a href="forms.html" class="active" data-en="Forms" data-de="Formulare">Formulare</a>
+      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -31,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Tell us what you need.", "We\u2019ll scope it precisely.", "Built to perform."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">All fields marked * are required.</p>
+    <h1 class="type" data-phrases-en='["Tell us what you need.", "We\u2019ll scope it precisely.", "Built to perform."]' data-phrases-de='["Sag uns, was du brauchst.", "Wir sch\u00e4tzen es pr\u00e4zise ab.", "Gebaut f\u00fcr Performance."]' data-phrases='["Sag uns, was du brauchst.", "Wir sch\u00e4tzen es pr\u00e4zise ab.", "Gebaut f\u00fcr Performance."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">Alle mit * markierten Felder sind Pflichtangaben.</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
@@ -45,37 +45,37 @@
     <h3>Service / Custom Script</h3>
     <form id="f">
 
-<label data-en="Name *" data-de="Name *">Name *</label><input name="name" required>
-<label data-en="Discord *" data-de="Discord *">Discord *</label><input name="discord" required>
-<label data-en="Email *" data-de="E-Mail *">Email *</label><input type="email" name="email" required>
-<label data-en="Framework" data-de="Framework">Framework</label><select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
-<label data-en="Description *" data-de="Beschreibung *">Description *</label><textarea name="desc" required></textarea>
+<label>Name *</label><input name="name" required>
+<label>Discord *</label><input name="discord" required>
+<label>E-Mail *</label><input type="email" name="email" required>
+<label>Framework</label><select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
+<label>Beschreibung *</label><textarea name="desc" required></textarea>
 
-      <label><input type="checkbox" id="agree" required> <span data-en="I accept the " data-de="Ich akzeptiere die "></span><a href="policy.html" target="_blank" data-en="privacy policy" data-de="Datenschutzerklärung">privacy policy</a>.</label>
-      <br><button class="btn btn-gold" type="submit" data-en="Submit" data-de="Absenden">Submit</button>
-      <div class="success" id="ok" data-en="✅ Sent successfully!" data-de="✅ Erfolgreich gesendet!">✅ Sent successfully!</div>
+      <label><input type="checkbox" id="agree" required> Ich akzeptiere die <a href="policy.html" target="_blank">Datenschutzerklärung</a>.</label>
+      <br><button class="btn btn-gold" type="submit">Absenden</button>
+      <div class="success" id="ok">✅ Erfolgreich gesendet!</div>
     </form>
   </div>
 </div></section>
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
-  <a href="policy.html">📄 Policy</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
-  <a href="contact.html">✉️ Contact</a>
+  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
+  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
 </footer>
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
     const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; }
-    else if(en){ el.textContent = en; }
+    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
   });
+  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
 </script>
 <script src="type.js"></script>
 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('l
 const API = "https://aurenix-lab-production.up.railway.app/send";
 document.getElementById('f').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  if(!document.getElementById('agree').checked) return alert((localStorage.getItem('lang')||'en')==='de'?'Bitte Datenschutz bestätigen.':'Please accept the privacy policy');
+  if(!document.getElementById('agree').checked) return alert('Bitte Datenschutz bestätigen.');
   const data = Object.fromEntries(new FormData(e.target).entries());
   data.topic = "Service / Custom Script";
   try{

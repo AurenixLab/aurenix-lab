@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="de"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Docs — zs_identity | Aurenix Lab</title>
 <link rel="stylesheet" href="style.css">
@@ -13,16 +13,16 @@
     </div>
     <nav class="nav">
       <div class="lang">
-        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
-        <button onclick="setLang('de')">🇩🇪 DE</button>
+        <button onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" >Home</a>
-      <a href="services.html" >Services</a>
-      <a href="shop.html" >Shop</a>
-      <a href="docs.html" class="active">Docs</a>
-      <a href="forms.html" >Forms</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" >Contact</a>
+      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+      <a href="docs.html" class="active" data-en="Docs" data-de="Docs">Docs</a>
+      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -31,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["zs_identity \u2014 clear and fast.", "Events, exports & config.", "Built for ESX / QBCore."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Identity & character creation with UI." data-de="Identität & Charaktererstellung mit UI.">Identity & character creation with UI.</p>
+    <h1 class="type" data-phrases-en='["zs_identity \u2014 clear and fast.", "Events, exports & config.", "Built for ESX / QBCore."]' data-phrases-de='["zs_identity \u2014 klar und schnell.", "Events, Exports & Config.", "F\u00fcr ESX / QBCore gebaut."]' data-phrases='["zs_identity \u2014 klar und schnell.", "Events, Exports & Config.", "F\u00fcr ESX / QBCore gebaut."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Documentation page" data-de="Dokumentationsseite">Dokumentationsseite</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
@@ -43,9 +43,9 @@
 <section class="section">
   <div class="container" style="display:grid;grid-template-columns:280px 1fr;gap:20px">
     <aside class="card" style="position:sticky;top:88px;height:max-content">
-      <h3>Contents</h3>
+      <h3>Inhalt</h3>
       <ol style="padding-left:16px;line-height:1.9">
-        <li><a href="#overview">Overview</a></li>
+        <li><a href="#overview">Überblick</a></li>
         <li><a href="#install">Installation</a></li>
         <li><a href="#config">Config</a></li>
         <li><a href="#events">Events</a></li>
@@ -54,18 +54,14 @@
       </ol>
     </aside>
     <main>
-      <div class="card" id="overview"><h3>Overview</h3><pre>Features: name, age, nationality, RP-fields.</pre></div>
-      <div class="card" id="install"><h3>Installation</h3><pre>1) put in resources/[aurenix]/zs_identity
+      <div class="card" id="overview"><h3>Überblick</h3><pre>Charakter-Erstellung mit UI (Name, Alter, RP-Felder).</pre></div>
+      <div class="card" id="install"><h3>Installation</h3><pre>1) resources/[aurenix]/zs_identity
 2) ensure zs_identity
-3) set permissions
+3) Berechtigungen setzen
 4) restart</pre></div>
-      <div class="card" id="config"><h3>Config</h3><pre>Config.Locale = 'en'
-Config.MinAge = 18
-Config.MaxAge = 80</pre></div>
-      <div class="card" id="events"><h3>Events</h3><pre>RegisterNetEvent('zs_identity:open')
-AddEventHandler('zs_identity:save', function(data) ... end)</pre></div>
-      <div class="card" id="exports"><h3>Exports</h3><pre>exports['zs_identity']:GetPlayerData(src)
-exports['zs_identity']:SetPlayerName(src, name)</pre></div>
+      <div class="card" id="config"><h3>Config</h3><pre>Config.Locale = 'de'\nConfig.MinAge = 18\nConfig.MaxAge = 80</pre></div>
+      <div class="card" id="events"><h3>Events</h3><pre>RegisterNetEvent('zs_identity:open')\nAddEventHandler('zs_identity:save', function(data) ... end)</pre></div>
+      <div class="card" id="exports"><h3>Exports</h3><pre>exports['zs_identity']:GetPlayerData(src)\nexports['zs_identity']:SetPlayerName(src, name)</pre></div>
       <div class="card" id="changelog"><h3>Changelog</h3><pre>v1.0.0  Initial release</pre></div>
     </main>
   </div>
@@ -73,22 +69,22 @@ exports['zs_identity']:SetPlayerName(src, name)</pre></div>
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
-  <a href="policy.html">📄 Policy</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
-  <a href="contact.html">✉️ Contact</a>
+  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
+  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
 </footer>
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
     const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; }
-    else if(en){ el.textContent = en; }
+    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
   });
+  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'en'));
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
 </script>
 <script src="type.js"></script>
 

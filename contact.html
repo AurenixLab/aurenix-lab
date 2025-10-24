@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="de"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aurenix Lab | Contact</title>
+<title>Aurenix Lab | Kontakt</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head><body>
@@ -8,21 +8,21 @@
 <header class="header">
   <div class="header-inner">
     <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix">
+      <img src="assets/logo.png" alt="Aurenix Logo">
       <div class="t">Aurenix Lab</div>
     </div>
     <nav class="nav">
       <div class="lang">
-        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
-        <button onclick="setLang('de')">🇩🇪 DE</button>
+        <button onclick="setLang('en')">🇬🇧 EN</button>
+        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
       </div>
-      <a href="index.html" >Home</a>
-      <a href="services.html" >Services</a>
-      <a href="shop.html" >Shop</a>
-      <a href="docs.html" >Docs</a>
-      <a href="forms.html" >Forms</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+      <a href="contact.html" class="active" data-en="Contact" data-de="Kontakt">Kontakt</a>
     </nav>
   </div>
 </header>
@@ -31,44 +31,41 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Let\u2019s get in touch.", "Fast & professional communication.", "Join our Discord \u2014 we reply quickly."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Contact us via email or Discord." data-de="Kontakt per E-Mail oder Discord.">Contact us via email or Discord.</p>
+    <h1 class="type" data-phrases-en='["Let\u2019s get in touch.", "Fast & professional communication.", "Join our Discord \u2014 we reply quickly."]' data-phrases-de='["Lass uns sprechen.", "Schnelle & professionelle Kommunikation.", "Komm auf Discord \u2014 wir antworten schnell."]' data-phrases='["Lass uns sprechen.", "Schnelle & professionelle Kommunikation.", "Komm auf Discord \u2014 wir antworten schnell."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Contact us via email or Discord." data-de="Kontakt per E-Mail oder Discord.">Kontakt per E-Mail oder Discord.</p>
     <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
     </div>
   </div>
 </section>
 
 <section class="section"><div class="container">
   <div class="card">
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:aurenixlab@gmail.com">aurenixlab@gmail.com</a></p>
+    <h3>Kontakt</h3>
+    <p>E-Mail: <a href="mailto:aurenixlab@gmail.com">aurenixlab@gmail.com</a></p>
     <p>Discord: <a href="https://discord.gg/RNzyXTuepc" target="_blank">discord.gg/RNzyXTuepc</a></p>
   </div>
 </div></section>
 
 <footer class="footer">
   © 2025 Aurenix Lab  •
-  <a href="policy.html">📄 Policy</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
-  <a href="contact.html">✉️ Contact</a>
+  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
+  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
 </footer>
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-en]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
+    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
   });
-  document.querySelectorAll('[data-de]').forEach(el=>{
-    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
-  });
+  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
   localStorage.setItem('lang', lang);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  setLang(localStorage.getItem('lang')||'en');
-});
+document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
 </script>
 <script src="type.js"></script>
 
