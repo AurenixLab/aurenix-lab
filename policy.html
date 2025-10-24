@@ -1,22 +1,30 @@
-<!DOCTYPE html><html lang="de"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Datenschutz - Aurenix Lab</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head><body>
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Datenschutz</title><link rel='stylesheet' href='style.css'></head><body>
 <header class="header"><div class="header-inner">
-  <div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div>
+  <div class="brand"><img src="assets/logo.png" alt="Aurenix"><div class="t">Aurenix Lab</div></div>
+  <nav class="nav">
+    <div class="lang"><button onclick="setLang('en')">🇬🇧</button><button class="active" onclick="setLang('de')">🇩🇪</button></div>
+    <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+    <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+    <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+    <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+    <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+    <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+  </nav>
 </div></header>
-<section class="hero"><div>
-  <img class="logo-big" src="assets/logo.png">
-  <h1 class="type" data-phrases-en='["Privacy made simple.","We only use your data to answer you.","No third-party selling."]' data-phrases-de='["Datenschutz einfach.","Wir nutzen deine Daten nur zur Beantwortung.","Keine Weitergabe an Dritte."]' data-phrases='["Datenschutz einfach.","Wir nutzen deine Daten nur zur Beantwortung.","Keine Weitergabe an Dritte."]'></h1><span class="cursor">|</span>
-</div></section>
-<section class="section"><div class="container">
-  <div class="card">
-    <h3>Datenschutz (Kurzfassung)</h3>
-    <p>Wir verwenden deine Angaben ausschließlich zur Bearbeitung deiner Anfrage. Keine Weitergabe an Dritte. Kontakt: aurenixlab@gmail.com</p>
+
+<section class="hero">
+  <div>
+    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
+    <h1 class="type" data-phrases-en='["Privacy"]' data-phrases-de='["Datenschutz"]'></h1><span class="cursor">|</span>
+    <p data-en="" data-de=""></p>
+    <div style="margin-top:12px"><a class="btn btn-gold" href="shop.html" data-en="Shop" data-de="Shop">Shop</a> <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">Discord</a></div>
   </div>
-</div></section>
-<footer class="footer">© 2025 Aurenix Lab</footer>
+</section>
+<section class='section'><div class='container'><div class='card'><h3>Datenschutz</h3><p>Wir verwenden Daten nur zur Bearbeitung deiner Anfrage. Kontakt: aurenixlab@gmail.com</p></div></div></section>
+<footer class="footer">
+  © 2025 Aurenix Lab • <a href="policy.html" data-en="Policy" data-de="Datenschutz">Datenschutz</a> • <a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
+</footer>
 <script src="type.js"></script>
+<script src="copy.js"></script>
+<script src="forms.js"></script>
 </body></html>

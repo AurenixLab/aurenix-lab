@@ -1,73 +1,30 @@
-<!DOCTYPE html><html lang="de"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aurenix Lab | Formulare</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head><body>
-
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix Logo">
-      <div class="t">Aurenix Lab</div>
-    </div>
-    <nav class="nav">
-      <div class="lang">
-        <button onclick="setLang('en')">🇬🇧 EN</button>
-        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
-      </div>
-      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
-      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
-      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
-      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
-      <a href="forms.html" class="active" data-en="Forms" data-de="Formulare">Formulare</a>
-      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
-      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
-    </nav>
-  </div>
-</header>
-
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Formulare</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="header"><div class="header-inner">
+  <div class="brand"><img src="assets/logo.png" alt="Aurenix"><div class="t">Aurenix Lab</div></div>
+  <nav class="nav">
+    <div class="lang"><button onclick="setLang('en')">🇬🇧</button><button class="active" onclick="setLang('de')">🇩🇪</button></div>
+    <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+    <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+    <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+    <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+    <a href="forms.html" class="active" data-en="Forms" data-de="Formulare">Formulare</a>
+    <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+  </nav>
+</div></header>
 
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases-en='["Need help? Request here.", "Custom scripts, partnerships, team & support.", "Fast response \u2014 professional communication."]' data-phrases-de='["Hilfe n\u00f6tig? Hier anfragen.", "Custom Scripts, Partnerschaften, Team & Support.", "Schnelle R\u00fcckmeldung \u2014 professionelle Kommunikation."]' data-phrases='["Hilfe n\u00f6tig? Hier anfragen.", "Custom Scripts, Partnerschaften, Team & Support.", "Schnelle R\u00fcckmeldung \u2014 professionelle Kommunikation."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Choose your request type below." data-de="Wähle unten deinen Anfrage-Typ.">Wähle unten deinen Anfrage-Typ.</p>
-    <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
-    </div>
+    <h1 class="type" data-phrases-en='["Forms"]' data-phrases-de='["Formulare"]'></h1><span class="cursor">|</span>
+    <p data-en="" data-de=""></p>
+    <div style="margin-top:12px"><a class="btn btn-gold" href="shop.html" data-en="Shop" data-de="Shop">Shop</a> <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">Discord</a></div>
   </div>
 </section>
-
-<section class="section"><div class="container">
-  <div class="grid">
-    <div class="card"><h3>🤝 Partnerschaft</h3><p>Server-Partnerschaft anfragen.</p><a class="btn btn-gold" href="form-partner.html">Öffnen</a></div>
-    <div class="card"><h3>💼 Teambewerbung</h3><p>Für Dev/Support bewerben.</p><a class="btn btn-gold" href="form-team.html">Öffnen</a></div>
-    <div class="card"><h3>🧩 Custom / Service</h3><p>Custom Script oder Service.</p><a class="btn btn-gold" href="form-service.html">Öffnen</a></div>
-    <div class="card"><h3>🐞 Bug-Report</h3><p>Fehler melden.</p><a class="btn btn-gold" href="form-bug.html">Öffnen</a></div>
-  </div>
-</div></section>
-
+<section class="section"><div class="container"><div class="grid"><div class="card"><h3>Partnerschaft</h3><p>Server partnership</p><a class="btn btn-gold" href="form-partner.html">Open</a></div><div class="card"><h3>Teambewerbung</h3><p>Apply</p><a class="btn btn-gold" href="form-team.html">Open</a></div><div class="card"><h3>Service Request</h3><p>Request scripting</p><a class="btn btn-gold" href="form-service.html">Open</a></div><div class="card"><h3>Bug Report</h3><p>Report bug</p><a class="btn btn-gold" href="form-bug.html">Open</a></div></div></div></section>
 <footer class="footer">
-  © 2025 Aurenix Lab  •
-  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
-  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
+  © 2025 Aurenix Lab • <a href="policy.html" data-en="Policy" data-de="Datenschutz">Datenschutz</a> • <a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
 </footer>
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
-  });
-  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
-}
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
-</script>
 <script src="type.js"></script>
-
+<script src="copy.js"></script>
+<script src="forms.js"></script>
 </body></html>

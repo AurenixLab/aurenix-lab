@@ -1,85 +1,46 @@
-<!DOCTYPE html><html lang="de"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aurenix Lab | Services</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head><body>
-
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix Logo">
-      <div class="t">Aurenix Lab</div>
-    </div>
-    <nav class="nav">
-      <div class="lang">
-        <button onclick="setLang('en')">🇬🇧 EN</button>
-        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
-      </div>
-      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
-      <a href="services.html" class="active" data-en="Services" data-de="Services">Services</a>
-      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
-      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
-      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
-      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
-      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
-    </nav>
-  </div>
-</header>
-
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Services</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="header"><div class="header-inner">
+  <div class="brand"><img src="assets/logo.png" alt="Aurenix"><div class="t">Aurenix Lab</div></div>
+  <nav class="nav">
+    <div class="lang"><button onclick="setLang('en')">🇬🇧</button><button class="active" onclick="setLang('de')">🇩🇪</button></div>
+    <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+    <a href="services.html" class="active" data-en="Services" data-de="Services">Services</a>
+    <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+    <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+    <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
+    <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+  </nav>
+</div></header>
 
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases-en='["Optimized. Efficient. Reliable.", "FiveM services that elevate your server.", "Custom development \u2014 made by Aurenix."]' data-phrases-de='["Optimiert. Effizient. Zuverl\u00e4ssig.", "FiveM-Services, die deinen Server heben.", "Custom Development \u2014 made by Aurenix."]' data-phrases='["Optimiert. Effizient. Zuverl\u00e4ssig.", "FiveM-Services, die deinen Server heben.", "Custom Development \u2014 made by Aurenix."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="From setup to custom resources — we build for results." data-de="Vom Setup bis zu Custom-Resources — wir liefern Ergebnisse.">Vom Setup bis zu Custom-Resources — wir liefern Ergebnisse.</p>
-    <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
-    </div>
+    <h1 class="type" data-phrases-en='["Scripting only"]' data-phrases-de='["Nur Scripting"]'></h1><span class="cursor">|</span>
+    <p data-en="" data-de=""></p>
+    <div style="margin-top:12px"><a class="btn btn-gold" href="shop.html" data-en="Shop" data-de="Shop">Shop</a> <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">Discord</a></div>
   </div>
 </section>
-
 <section class="section"><div class="container">
-  <h2 class="h2">Services & Preise</h2>
-
 <div class="grid">
-  <div class="card"><h3>🖥️ Server-Setup & Konfig</h3><p>FiveM-Installation, DB (MySQL/MariaDB), Performance-Tuning.</p><span class="price">€10 – €25</span></div>
-  <div class="card"><h3>🧩 Ressourcen & Scripts</h3><p>ESX/QBCore Install, Configs, Bugfixing.</p><span class="price">€5 – €20</span></div>
-  <div class="card"><h3>🧱 Framework-Installation</h3><p>ESX / QBCore / Standalone, Addon-Kompatibilität, Migrationen.</p><span class="price">€15 – €30</span></div>
-  <div class="card"><h3>🐞 Debugging</h3><p>Console & F8-Analyse, Crash-Fixes, Client/Server-Bugs.</p><span class="price">€10 – €25</span></div>
-  <div class="card"><h3>🎨 UI / HUD / Menüs</h3><p>HUDs, Loading Screens, Radialmenüs, Inventar-Styling.</p><span class="price">€10 – €30</span></div>
-  <div class="card"><h3>📋 Whitelist & Rollen</h3><p>Discord-Whitelist, Adminrollen, ACE-Permissions.</p><span class="price">€5 – €15</span></div>
-  <div class="card"><h3>📦 Custom Framework Builds</h3><p>Maßgeschneiderte ESX/QBCore-Stacks inkl. Module.</p><span class="price">€25 – €60</span></div>
-  <div class="card"><h3>💾 DB-Optimierung & Backups</h3><p>Indexing, Cleanup, Backup-Strategien, Migrationen.</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>⚙️ Discord-Automation</h3><p>Bots (Reports, Online-Spieler, Status) & Webhooks.</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>🚗 Fahrzeuge & Handling</h3><p>Addons einbauen, Tuning, Soundpacks, Livery-Setup.</p><span class="price">€15 – €50</span></div>
-  <div class="card"><h3>🛡️ Anti-Cheat & Moderation</h3><p>EasyAdmin, Bans, Logging, Audit.</p><span class="price">€15 – €40</span></div>
-  <div class="card"><h3>🔧 Maintenance</h3><p>Troubleshooting, Updates, Uptime-Checks.</p><span class="price">€10 – €30</span></div>
+  <div class="card"><h3>🧩 Custom Scripts</h3><p data-en="Tailored ESX/QBCore/Standalone resources." data-de="Maßgeschneiderte ESX/QBCore/Standalone Ressourcen.">Maßgeschneiderte ESX/QBCore/Standalone Ressourcen.</p><span class="price">€8 – €25</span></div>
+  <div class="card"><h3>⚙️ System Optimization</h3><p data-en="Event refactor, resmon tuning, performance fixes." data-de="Event-Refactor, Resmon-Tuning, Performance-Fixes.">Event-Refactor, Resmon-Tuning, Performance-Fixes.</p><span class="price">€6 – €18</span></div>
+  <div class="card"><h3>🔐 Security & Anti-Cheat</h3><p data-en="Permissions, logging, anti-dupe & anti-exploit measures." data-de="Permissions, Logging, Anti-Dupe & Anti-Exploit.">Permissions, Logging, Anti-Dupe & Anti-Exploit.</p><span class="price">€10 – €28</span></div>
+  <div class="card"><h3>💾 Database & Sync</h3><p data-en="MySQL/MariaDB optimizations, sync fixes, backups." data-de="MySQL/MariaDB-Optimierung, Sync-Fixes, Backups.">MySQL/MariaDB-Optimierung, Sync-Fixes, Backups.</p><span class="price">€8 – €20</span></div>
+  <div class="card"><h3>📡 Event Systems</h3><p data-en="Reliable server-client event architecture & callbacks." data-de="Zuverlässige Server-Client-Event-Architektur & Callbacks.">Zuverlässige Server-Client-Event-Architektur & Callbacks.</p><span class="price">€7 – €18</span></div>
+  <div class="card"><h3>🧠 Framework Adjustments</h3><p data-en="Migrations, extensions (ESX ⇄ QBCore)." data-de="Migrationen & Erweiterungen (ESX ⇄ QBCore).">Migrationen & Erweiterungen (ESX ⇄ QBCore).</p><span class="price">€10 – €25</span></div>
+  <div class="card"><h3>🎛️ NUI Integration</h3><p data-en="Custom HUDs, menus & NUI communication." data-de="Custom HUDs, Menüs & NUI-Kommunikation.">Custom HUDs, Menüs & NUI-Kommunikation.</p><span class="price">€8 – €22</span></div>
+  <div class="card"><h3>🧾 Script Debugging</h3><p data-en="Log analysis, crash fixes, F8 error resolution." data-de="Log-Analyse, Crash-Fixes, F8-Error-Fixes.">Log-Analyse, Crash-Fixes, F8-Error-Fixes.</p><span class="price">€6 – €15</span></div>
+  <div class="card"><h3>🛰️ API & Discord Integration</h3><p data-en="Webhooks, role sync, status & logging API." data-de="Webhooks, Rollen-Sync, Status & Logging API.">Webhooks, Rollen-Sync, Status & Logging API.</p><span class="price">€10 – €24</span></div>
+  <div class="card"><h3>🔄 Resource Refactor</h3><p data-en="Modernize old scripts, improve performance." data-de="Alte Scripts modernisieren & Performance verbessern.">Alte Scripts modernisieren & Performance verbessern.</p><span class="price">€10 – €30</span></div>
+  <div class="card"><h3>🧮 Server Configuration</h3><p data-en="server.cfg tuning, resource ordering, startup optimizations." data-de="server.cfg Tuning, Reihenfolge, Startup-Optimierung.">server.cfg Tuning, Reihenfolge, Startup-Optimierung.</p><span class="price">€5 – €12</span></div>
+  <div class="card"><h3>🛠️ Maintenance / Support</h3><p data-en="Hourly fixes, updates, uptime checks." data-de="Stundenweise Fixes, Updates, Uptime-Checks.">Stundenweise Fixes, Updates, Uptime-Checks.</p><span class="price">€8 – €20</span></div>
 </div>
-<p class="subtle" style="text-align:center;margin-top:12px">* Preise sind Richtwerte und variieren je nach Aufwand.</p>
-
+<p style="text-align:center;margin-top:12px;color:var(--muted)">* Preise variieren je nach Aufwand — kontaktiere uns für ein Angebot.</p>
 </div></section>
-
 <footer class="footer">
-  © 2025 Aurenix Lab  •
-  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
-  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
+  © 2025 Aurenix Lab • <a href="policy.html" data-en="Policy" data-de="Datenschutz">Datenschutz</a> • <a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
 </footer>
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
-  });
-  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
-}
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
-</script>
 <script src="type.js"></script>
-
+<script src="copy.js"></script>
+<script src="forms.js"></script>
 </body></html>

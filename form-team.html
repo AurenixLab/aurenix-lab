@@ -1,98 +1,34 @@
-<!DOCTYPE html><html lang="de"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Teambewerbung - Aurenix Lab</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head><body>
-
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix Logo">
-      <div class="t">Aurenix Lab</div>
-    </div>
-    <nav class="nav">
-      <div class="lang">
-        <button onclick="setLang('en')">🇬🇧 EN</button>
-        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
-      </div>
-      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
-      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
-      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
-      <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
-      <a href="forms.html" class="active" data-en="Forms" data-de="Formulare">Formulare</a>
-      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
-      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
-    </nav>
-  </div>
-</header>
-
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Teambewerbung</title><link rel="stylesheet" href="style.css"></head><body>
+<header class="header"><div class="header-inner">
+  <div class="brand"><img src="assets/logo.png" alt="Aurenix"><div class="t">Aurenix Lab</div></div>
+  <nav class="nav">
+    <div class="lang"><button onclick="setLang('en')">🇬🇧</button><button class="active" onclick="setLang('de')">🇩🇪</button></div>
+    <a href="index.html"  data-en="Home" data-de="Start">Start</a>
+    <a href="services.html"  data-en="Services" data-de="Services">Services</a>
+    <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
+    <a href="docs.html"  data-en="Docs" data-de="Docs">Docs</a>
+    <a href="forms.html" class="active" data-en="Forms" data-de="Formulare">Formulare</a>
+    <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
+  </nav>
+</div></header>
 
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases-en='["We love builders.", "Join a focused, friendly team.", "Quality over quantity."]' data-phrases-de='["Wir lieben Builder.", "Komm in ein fokussiertes, freundliches Team.", "Qualit\u00e4t vor Quantit\u00e4t."]' data-phrases='["Wir lieben Builder.", "Komm in ein fokussiertes, freundliches Team.", "Qualit\u00e4t vor Quantit\u00e4t."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">Alle mit * markierten Felder sind Pflichtangaben.</p>
-    <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
-    </div>
+    <h1 class="type" data-phrases-en='["Form"]' data-phrases-de='["Formular"]'></h1><span class="cursor">|</span>
+    <p data-en="" data-de=""></p>
+    <div style="margin-top:12px"><a class="btn btn-gold" href="shop.html" data-en="Shop" data-de="Shop">Shop</a> <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">Discord</a></div>
   </div>
 </section>
-
-<section class="section"><div class="container">
-  <div class="card">
-    <h3>Teambewerbung</h3>
-    <form id="f">
-
-<label>Name *</label><input name="name" required>
+<section class="section"><div class="container"><div class="card"><h3>Teambewerbung</h3><form class="aurenix-form" data-topic="Teambewerbung" data-btn="Absenden"><label>Name *</label><input name="name" required>
 <label>Alter *</label><input type="number" name="age" min="15" required>
 <label>Discord *</label><input name="discord" required>
-<label>Rolle *</label>
-<select name="role" required><option>Developer (Lua/JS)</option><option>UI/UX</option><option>Support</option></select>
-<label>Erfahrung / Links</label><textarea name="refs"></textarea>
-<label>E-Mail *</label><input type="email" name="email" required>
-
-      <label><input type="checkbox" id="agree" required> Ich akzeptiere die <a href="policy.html" target="_blank">Datenschutzerklärung</a>.</label>
-      <br><button class="btn btn-gold" type="submit">Absenden</button>
-      <div class="success" id="ok">✅ Erfolgreich gesendet!</div>
-    </form>
-  </div>
-</div></section>
-
+<label>Rolle *</label><select name="role" required><option>Developer (Lua)</option><option>Developer (JS/TS)</option><option>Fullstack</option><option>UI/UX</option><option>Tester</option><option>Support</option></select>
+<label>E-Mail *</label><input type="email" name="email" required><label><input type="checkbox" required> Ich akzeptiere die Datenschutzerklärung</label><br><button type="submit">Absenden</button><div class="success">✅ Sent / queued</div></form></div></div></section>
 <footer class="footer">
-  © 2025 Aurenix Lab  •
-  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
-  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
+  © 2025 Aurenix Lab • <a href="policy.html" data-en="Policy" data-de="Datenschutz">Datenschutz</a> • <a href="contact.html" data-en="Contact" data-de="Kontakt">Kontakt</a>
 </footer>
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
-  });
-  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
-}
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
-</script>
 <script src="type.js"></script>
-
-<script>
-const API = "https://aurenix-lab-production.up.railway.app/send";
-document.getElementById('f').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  if(!document.getElementById('agree').checked) return alert('Bitte Datenschutz bestätigen.');
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  data.topic = "Teambewerbung";
-  try{
-    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, mode:'cors', body: JSON.stringify(data) });
-    if(r.ok) { document.getElementById('ok').style.display='block'; e.target.reset(); }
-    else { const t=await r.text(); alert('Error: '+t); }
-  }catch(err){ alert('Network error: '+err.message); }
-});
-</script>
+<script src="copy.js"></script>
+<script src="forms.js"></script>
 </body></html>
