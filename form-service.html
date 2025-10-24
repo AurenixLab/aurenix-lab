@@ -1,53 +1,99 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Service / Custom Script - Aurenix Lab</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head><body>
-<nav class="nav"><div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div>
-<div class="links"><span class="lang-switch"><span class="lang-btn" data-lang="de" onclick="setLang('de')">🇩🇪 DE</span><span class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</span></span>
-<a href="index.html" data-de="Startseite" data-en="Home">Startseite</a><a href="formulare.html" class="active" data-de="Formulare" data-en="Forms">Formulare</a></div></nav>
-<main class="container">
-  <div class="form-card">
-    <h1 data-de="Service / Custom Script" data-en="Service / Custom Script">Service / Custom Script</h1>
-    <form id="theForm">
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Service / Custom Script - Aurenix Lab</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head><body>
 
-<label data-de="Name *" data-en="Name *">Name *</label><input name="name" required>
-<label data-de="Discord-Tag *" data-en="Discord tag *">Discord-Tag *</label><input name="discord" required>
-<label data-de="E-Mail *" data-en="Email *">E-Mail *</label><input name="email" type="email" required>
-<label data-de="Framework" data-en="Framework">Framework</label>
-<select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
-<label data-de="Beschreibung *" data-en="Description *">Beschreibung *</label><textarea name="desc" required></textarea>
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Aurenix">
+      <div class="t">Aurenix Lab</div>
+    </div>
+    <nav class="nav">
+      <div class="lang">
+        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
+        <button onclick="setLang('de')">🇩🇪 DE</button>
+      </div>
+      <a href="index.html" >Home</a>
+      <a href="services.html" >Services</a>
+      <a href="shop.html" >Shop</a>
+      <a href="docs.html" >Docs</a>
+      <a href="forms.html" class="active">Forms</a>
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+  </div>
+</header>
 
-      <label><input type="checkbox" id="agree" required> <span data-de="Ich stimme der" data-en="I agree to the"></span> <a href="policy.html" target="_blank" data-de="Datenschutzerklärung" data-en="privacy policy">Datenschutzerklärung</a>.</label>
-      <br><button class="btn btn-gold" type="submit" data-de="Absenden" data-en="Submit">Absenden</button>
-      <div class="success" id="ok" data-de="✅ Erfolgreich gesendet!" data-en="✅ Sent successfully!">✅ Erfolgreich gesendet!</div>
+
+<section class="hero">
+  <div>
+    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
+    <h1 class="type" data-phrases='["Fill the form carefully.", "We will reply via email or Discord.", "Thanks for your request!"]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">All fields marked * are required.</p>
+    <div style="margin-top:12px">
+      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+    </div>
+  </div>
+</section>
+
+<section class="section"><div class="container">
+  <div class="card">
+    <h3>Service / Custom Script</h3>
+    <form id="f">
+
+<label>Name *</label><input name="name" required>
+<label>Discord *</label><input name="discord" required>
+<label>Email *</label><input type="email" name="email" required>
+<label>Framework</label><select name="framework"><option>ESX</option><option>QBCore</option><option>Standalone</option></select>
+<label>Description *</label><textarea name="desc" required></textarea>
+
+      <label><input type="checkbox" id="agree" required> I accept the <a href="policy.html" target="_blank">privacy policy</a>.</label>
+      <br><button class="btn btn-gold" type="submit">Submit</button>
+      <div class="success" id="ok">✅ Sent successfully!</div>
     </form>
   </div>
-</main>
-<footer class="footer">© 2025 Aurenix Lab</footer>
-<script>
-const API = 'https://aurenix-lab-production.up.railway.app/send';
-document.getElementById('theForm').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  if(!document.getElementById('agree').checked){ alert((localStorage.getItem('lang')||'de')==='de'?'Bitte Datenschutz bestätigen.':'Please accept privacy policy.'); return; }
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  data.topic = 'Service';
-  try{
-    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-    if(r.ok){ document.getElementById('ok').style.display='block'; e.target.reset(); }
-    else alert('Error');
-  }catch(err){ alert('Network error'); }
-});
-</script>
+</div></section>
 
+<footer class="footer">
+  © 2025 Aurenix Lab  •
+  <a href="policy.html">📄 Policy</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
+  <a href="contact.html">✉️ Contact</a>
+</footer>
 <script>
 function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+  });
   document.querySelectorAll('[data-de]').forEach(el=>{
     el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
   });
   localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  const btn=document.querySelector(`.lang-btn[data-lang="${lang}"]`); if(btn) btn.classList.add('active');
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-const initLang = localStorage.getItem('lang') || 'de';
-document.addEventListener('DOMContentLoaded',()=>setLang(initLang));
+document.addEventListener('DOMContentLoaded',()=>{
+  setLang(localStorage.getItem('lang')||'en');
+});
 </script>
+<script src="type.js"></script>
 
+<script>
+const API = "https://aurenix-lab-production.up.railway.app/send";
+document.getElementById('f').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  if(!document.getElementById('agree').checked) return alert('Please accept the privacy policy');
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  data.topic = "Service / Custom Script";
+  try {
+    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+    if(r.ok) { document.getElementById('ok').style.display='block'; e.target.reset(); }
+    else alert('Error submitting form');
+  } catch(err) { alert('Network error'); }
+});
+</script>
 </body></html>

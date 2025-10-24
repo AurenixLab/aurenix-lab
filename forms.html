@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Team Application - Aurenix Lab</title>
+<title>Aurenix Lab | Forms</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 </head><body>
@@ -31,8 +31,8 @@
 <section class="hero">
   <div>
     <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases='["Fill the form carefully.", "We will reply via email or Discord.", "Thanks for your request!"]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="All fields marked * are required." data-de="Alle mit * markierten Felder sind Pflichtangaben.">All fields marked * are required.</p>
+    <h1 class="type" data-phrases='["Need help? Request here.", "Custom scripts, partnerships, team & support.", "Fast response \u2014 professional communication."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Choose your request type below." data-de="Wähle unten deinen Anfrage-Typ.">Choose your request type below.</p>
     <div style="margin-top:12px">
       <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
       <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
@@ -41,22 +41,11 @@
 </section>
 
 <section class="section"><div class="container">
-  <div class="card">
-    <h3>Team Application</h3>
-    <form id="f">
-
-<label>Name *</label><input name="name" required>
-<label>Age *</label><input type="number" name="age" min="15" required>
-<label>Discord *</label><input name="discord" required>
-<label>Role *</label>
-<select name="role" required><option>Developer (Lua/JS)</option><option>UI/UX</option><option>Support</option></select>
-<label>Experience / Links</label><textarea name="refs"></textarea>
-<label>Email *</label><input type="email" name="email" required>
-
-      <label><input type="checkbox" id="agree" required> I accept the <a href="policy.html" target="_blank">privacy policy</a>.</label>
-      <br><button class="btn btn-gold" type="submit">Submit</button>
-      <div class="success" id="ok">✅ Sent successfully!</div>
-    </form>
+  <div class="grid">
+    <div class="card"><h3>🤝 Partnership</h3><p>Server partnership request.</p><a class="btn btn-gold" href="form-partner.html">Open</a></div>
+    <div class="card"><h3>💼 Team Application</h3><p>Apply for dev or support.</p><a class="btn btn-gold" href="form-team.html">Open</a></div>
+    <div class="card"><h3>🧩 Custom / Service</h3><p>Custom script or service.</p><a class="btn btn-gold" href="form-service.html">Open</a></div>
+    <div class="card"><h3>🐞 Bug Report</h3><p>Report an issue.</p><a class="btn btn-gold" href="form-bug.html">Open</a></div>
   </div>
 </div></section>
 
@@ -84,18 +73,4 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 <script src="type.js"></script>
 
-<script>
-const API = "https://aurenix-lab-production.up.railway.app/send";
-document.getElementById('f').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  if(!document.getElementById('agree').checked) return alert('Please accept the privacy policy');
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  data.topic = "Team Application";
-  try {
-    const r = await fetch(API, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-    if(r.ok) { document.getElementById('ok').style.display='block'; e.target.reset(); }
-    else alert('Error submitting form');
-  } catch(err) { alert('Network error'); }
-});
-</script>
 </body></html>

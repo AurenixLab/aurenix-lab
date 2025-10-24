@@ -1,87 +1,79 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Aurenix Lab | FiveM Development</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aurenix Lab | Home</title>
 <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav class="nav">
-  <div class="brand"><img src="assets/logo.png" alt=""><div class="t">Aurenix Lab</div></div>
-  <div class="links">
-    <span class="lang-switch">
-      <span class="lang-btn" data-lang="de" onclick="setLang('de')">🇩🇪 DE</span>
-      <span class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</span>
-    </span>
-    <a href="index.html" class="active" data-de="Startseite" data-en="Home">Startseite</a>
-    <a href="services.html" data-de="Services" data-en="Services">Services</a>
-    <a href="shop.html" data-de="Shop" data-en="Shop">Shop</a>
-    <a href="docs.html" data-de="Docs" data-en="Docs">Docs</a>
-    <a href="formulare.html" data-de="Formulare" data-en="Forms">Formulare</a>
-    <a href="about.html" data-de="Über Uns" data-en="About">Über Uns</a>
-    <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
-  </div>
-</nav>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head><body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <img class="hero-logo" src="assets/logo.png" alt="Aurenix Logo">
-    <h1><span id="typed-text"></span><span class="cursor">|</span></h1>
-    <p class="h-sub" data-de="Professionelle FiveM-Scripting Lösungen, UI-Designs und Server-Optimierungen."
-                      data-en="Professional FiveM scripting, UI design, and server optimizations.">
-      Professionelle FiveM-Scripting Lösungen, UI-Designs und Server-Optimierungen.
-    </p>
-    <div class="cta">
-      <a class="btn btn-gold" href="shop.html" data-de="🛒 Zum Shop" data-en="🛒 Visit Shop">🛒 Zum Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-de="💬 Discord" data-en="💬 Discord">💬 Discord</a>
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Aurenix">
+      <div class="t">Aurenix Lab</div>
     </div>
+    <nav class="nav">
+      <div class="lang">
+        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
+        <button onclick="setLang('de')">🇩🇪 DE</button>
+      </div>
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html" >Services</a>
+      <a href="shop.html" >Shop</a>
+      <a href="docs.html" >Docs</a>
+      <a href="forms.html" >Forms</a>
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
   </div>
 </header>
 
+
+<section class="hero">
+  <div>
+    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
+    <h1 class="type" data-phrases='["We build what your server needs.", "Innovative FiveM solutions \u2014 built with precision.", "Aurenix Lab \u2014 your FiveM development studio."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="Professional FiveM scripting, UI and server optimization." data-de="Professionelles FiveM-Scripting, UI und Server-Optimierung.">Professional FiveM scripting, UI and server optimization.</p>
+    <div style="margin-top:12px">
+      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
-    <h2 data-de="Warum Aurenix?" data-en="Why Aurenix?">Warum Aurenix?</h2>
+    <h2 class="h2" data-en="Why Aurenix?" data-de="Warum Aurenix?">Why Aurenix?</h2>
     <div class="grid">
-      <div class="card"><div class="tag">⚡</div><h3 data-de="Performance" data-en="Performance">Performance</h3><p data-de="Optimierte Events & Ressourcen für niedrigen Resmon." data-en="Optimized events & resources for low resmon.">Optimierte Events & Ressourcen für niedrigen Resmon.</p></div>
-      <div class="card"><div class="tag">🎨</div><h3 data-de="Design" data-en="Design">Design</h3><p data-de="Moderner UI/UX-Style für immersive Spielerlebnisse." data-en="Modern UI/UX for immersive player experiences.">Moderner UI/UX-Style für immersive Spielerlebnisse.</p></div>
-      <div class="card"><div class="tag">🔐</div><h3 data-de="Sicherheit" data-en="Security">Sicherheit</h3><p data-de="Saubere Permissions & stabiler Code." data-en="Clean permissions & stable code.">Saubere Permissions & stabiler Code.</p></div>
+      <div class="card"><h3>⚡ Performance</h3><p>Optimized events & low resmon usage.</p></div>
+      <div class="card"><h3>🎨 Design</h3><p>Modern HUDs, menus and immersive UI.</p></div>
+      <div class="card"><h3>🔐 Security</h3><p>Clean permissions and stable code.</p></div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <span data-de="© 2025 Aurenix Lab •" data-en="© 2025 Aurenix Lab •">© 2025 Aurenix Lab •</span>
-  <a href="formulare.html" data-de="Formulare" data-en="Forms">Formulare</a>
+  © 2025 Aurenix Lab  •
+  <a href="policy.html">📄 Policy</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
+  <a href="contact.html">✉️ Contact</a>
 </footer>
-
-<script>
-const phrases_de=[
-  "Wir entwickeln, was dein Server braucht",
-  "Innovative FiveM-Lösungen — mit Präzision entwickelt",
-  "Aurenix Lab — Dein FiveM-Development-Studio"
-];
-const phrases_en=[
-  "We build what your server needs",
-  "Innovative FiveM solutions — built with precision",
-  "Aurenix Lab — your FiveM development studio"
-];
-function currentPhrases(){return (localStorage.getItem('lang')||'de')==='de'?phrases_de:phrases_en;}
-let ti=0,ci=0,del=false,txtEl=document.getElementById('typed-text');
-function typeLoop(){const ps=currentPhrases();const p=ps[ti];if(!del){txtEl.textContent=p.slice(0,ci++);if(ci>p.length){del=true;setTimeout(typeLoop,1400);return;}}else{txtEl.textContent=p.slice(0,ci--);if(ci<0){del=false;ti=(ti+1)%ps.length;}}setTimeout(typeLoop,del?40:70);}typeLoop();
-setInterval(()=>document.querySelector('.cursor')?.classList.toggle('active'),420);
-</script>
-
 <script>
 function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+  });
   document.querySelectorAll('[data-de]').forEach(el=>{
     el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
   });
   localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  const btn=document.querySelector(`.lang-btn[data-lang="${lang}"]`); if(btn) btn.classList.add('active');
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-const initLang = localStorage.getItem('lang') || 'de';
-document.addEventListener('DOMContentLoaded',()=>setLang(initLang));
+document.addEventListener('DOMContentLoaded',()=>{
+  setLang(localStorage.getItem('lang')||'en');
+});
 </script>
+<script src="type.js"></script>
+
+</body></html>

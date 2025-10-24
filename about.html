@@ -1,30 +1,75 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Über Uns - Aurenix Lab</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
-<body>
-<nav class="nav"><div class="brand"><img src="assets/logo.png"><div class="t">Aurenix Lab</div></div>
-  <div class="links">
-    <span class="lang-switch"><span class="lang-btn" data-lang="de" onclick="setLang('de')">🇩🇪 DE</span><span class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</span></span>
-    <a href="index.html" data-de="Startseite" data-en="Home">Startseite</a><a href="services.html" data-de="Services" data-en="Services">Services</a><a href="shop.html" data-de="Shop" data-en="Shop">Shop</a><a href="docs.html" data-de="Docs" data-en="Docs">Docs</a><a href="formulare.html" data-de="Formulare" data-en="Forms">Formulare</a><a href="about.html" class="active" data-de="Über Uns" data-en="About">Über Uns</a><a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
-  </div></nav>
-<main class="container">
-  <div class="form-card">
-    <h1 data-de="Über Uns" data-en="About Us">Über Uns</h1>
-    <p data-de="Inhalt folgt. Diese Seite ist ein Platzhalter." data-en="Content coming soon. This page is a placeholder.">Inhalt folgt. Diese Seite ist ein Platzhalter.</p>
-  </div>
-</main>
-<footer class="footer">© 2025 Aurenix Lab</footer>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aurenix Lab | About</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head><body>
 
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Aurenix">
+      <div class="t">Aurenix Lab</div>
+    </div>
+    <nav class="nav">
+      <div class="lang">
+        <button class="active" onclick="setLang('en')">🇬🇧 EN</button>
+        <button onclick="setLang('de')">🇩🇪 DE</button>
+      </div>
+      <a href="index.html" >Home</a>
+      <a href="services.html" >Services</a>
+      <a href="shop.html" >Shop</a>
+      <a href="docs.html" >Docs</a>
+      <a href="forms.html" >Forms</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div>
+    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
+    <h1 class="type" data-phrases='["We are developers with passion.", "Creating unique FiveM experiences.", "Aurenix Lab \u2014 innovation meets quality."]'></h1><span class="cursor">|</span>
+    <p class="subtle" data-en="We craft servers that feel premium." data-de="Wir schaffen Server, die sich premium anfühlen.">We craft servers that feel premium.</p>
+    <div style="margin-top:12px">
+      <a class="btn btn-gold" href="shop.html">🛒 Shop</a>
+      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Discord</a>
+    </div>
+  </div>
+</section>
+
+<section class="section"><div class="container">
+  <div class="grid">
+    <div class="card"><h3>Our Vision</h3><p>Clean code, strong UX, and scalable systems.</p></div>
+    <div class="card"><h3>Stack</h3><p>Lua, JS/TS, HTML/CSS, Node, SQL, NUI.</p></div>
+    <div class="card"><h3>Focus</h3><p>Performance first, always.</p></div>
+  </div>
+</div></section>
+
+<footer class="footer">
+  © 2025 Aurenix Lab  •
+  <a href="policy.html">📄 Policy</a>  |  
+  <a href="https://discord.gg/RNzyXTuepc" target="_blank">💬 Support</a>  |  
+  <a href="contact.html">✉️ Contact</a>
+</footer>
 <script>
 function setLang(lang){
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
+  });
   document.querySelectorAll('[data-de]').forEach(el=>{
     el.textContent = el.getAttribute(lang==='de' ? 'data-de' : 'data-en');
   });
   localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  const btn=document.querySelector(`.lang-btn[data-lang="${lang}"]`); if(btn) btn.classList.add('active');
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
 }
-const initLang = localStorage.getItem('lang') || 'de';
-document.addEventListener('DOMContentLoaded',()=>setLang(initLang));
+document.addEventListener('DOMContentLoaded',()=>{
+  setLang(localStorage.getItem('lang')||'en');
+});
 </script>
+<script src="type.js"></script>
 
 </body></html>
