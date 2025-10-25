@@ -1,84 +1,57 @@
-<!DOCTYPE html><html lang="de"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Aurenix Lab | Docs</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-</head><body>
-
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <img src="assets/logo.png" alt="Aurenix Logo">
-      <div class="t">Aurenix Lab</div>
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dokumentation</title>
+  <link rel="stylesheet" href="./enhancements/assets/css/aurenix-upgrade.css">
+</head>
+<body>
+  <canvas id="aurenixCanvas" aria-hidden="true"></canvas>
+  <header class="aurenix-topbar aurenix-glass aurenix-card">
+    <strong>Dokumentation</strong>
+    <div style="display:flex; gap:8px;">
+      <button class="aurenix-btn" id="aurenixOpenSettings">⚙️</button>
+      <button class="aurenix-btn" onclick="location.href='./index.html'">Zurück</button>
     </div>
-    <nav class="nav">
-      <div class="lang">
-        <button onclick="setLang('en')">🇬🇧 EN</button>
-        <button class="active" onclick="setLang('de')">🇩🇪 DE</button>
-      </div>
-      <a href="index.html"  data-en="Home" data-de="Start">Start</a>
-      <a href="services.html"  data-en="Services" data-de="Services">Services</a>
-      <a href="shop.html"  data-en="Shop" data-de="Shop">Shop</a>
-      <a href="docs.html" class="active" data-en="Docs" data-de="Docs">Docs</a>
-      <a href="forms.html"  data-en="Forms" data-de="Formulare">Formulare</a>
-      <a href="about.html"  data-en="About" data-de="Über uns">Über uns</a>
-      <a href="contact.html"  data-en="Contact" data-de="Kontakt">Kontakt</a>
-    </nav>
-  </div>
-</header>
+  </header>
 
-
-<section class="hero">
-  <div>
-    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
-    <h1 class="type" data-phrases-en='["Your scripts. Fully documented.", "Clear. Structured. Developer friendly.", "Built for performance."]' data-phrases-de='["Deine Scripts. Vollst\u00e4ndig dokumentiert.", "Klar. Strukturiert. Dev-freundlich.", "Auf Performance ausgelegt."]' data-phrases='["Deine Scripts. Vollst\u00e4ndig dokumentiert.", "Klar. Strukturiert. Dev-freundlich.", "Auf Performance ausgelegt."]'></h1><span class="cursor">|</span>
-    <p class="subtle" data-en="Documentation hub for Aurenix resources." data-de="Dokumentations-Hub für Aurenix-Ressourcen.">Dokumentations-Hub für Aurenix-Ressourcen.</p>
-    <div style="margin-top:12px">
-      <a class="btn btn-gold" href="shop.html" data-en="🛒 Shop" data-de="🛒 Shop">🛒 Shop</a>
-      <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Discord" data-de="💬 Discord">💬 Discord</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container" style="display:grid;grid-template-columns:280px 1fr;gap:20px">
-    <aside class="card" style="position:sticky;top:88px;height:max-content">
-      <h3>Skripte</h3>
-      <ul style="list-style:none;padding-left:0;line-height:1.9">
-        <li><a href="docs-zs_banking.html">zs_banking</a></li>
-        <li><a href="docs-zs_identity.html">zs_identity</a></li>
-        <li><a href="docs-zs_jobstars.html">zs_jobstars</a></li>
-        <li><a href="docs-zs_voicerangepma.html">zs_voicerangepma</a></li>
-      </ul>
+  <main style="max-width:1100px;margin:24px auto;padding:0 16px;">
+    <aside class="aurenix-card aurenix-glass" style="float:left;width:260px;max-width:100%;margin-right:16px;">
+      <input id="docSearch" placeholder="Suchen…" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.2);color:inherit;">
+      <div id="docsSidebar" style="margin-top:10px;"></div>
     </aside>
-    <main>
-      <div class="card">
-        <h3>Docs Hub</h3>
-        <p>Wähle links ein Script, um die Dokumentation zu sehen.</p>
-      </div>
-    </main>
+    <article class="aurenix-card aurenix-glass" style="overflow:auto;min-height:60vh;">
+      <div id="docContent">Lade Dokumentation…</div>
+    </article>
+  </main>
+
+  <div id="aurenixSettings" class="aurenix-drawer aurenix-glass aurenix-card aurenix-hidden" role="dialog" aria-modal="true">
+    <header><strong>Einstellungen</strong><button class="aurenix-btn" id="aurenixCloseSettings">✖</button></header>
+    <div class="content">
+      <label class="aurenix-row"><span>Hintergrund</span>
+        <select id="aurenixBgMode">
+          <option value="off">Aus (Original)</option>
+          <option value="gradient">Gradient</option>
+          <option value="particles">Particles</option>
+          <option value="waves">Waves</option>
+        </select>
+      </label>
+      <label class="aurenix-row"><span>Animation</span>
+        <input type="checkbox" id="aurenixAnim" checked>
+      </label>
+    </div>
   </div>
-</section>
 
-<footer class="footer">
-  © 2025 Aurenix Lab  •
-  <a href="policy.html" data-en="📄 Policy" data-de="📄 Datenschutz">📄 Datenschutz</a>  |  
-  <a href="https://discord.gg/RNzyXTuepc" target="_blank" data-en="💬 Support" data-de="💬 Support">💬 Support</a>  |  
-  <a href="contact.html" data-en="✉️ Contact" data-de="✉️ Kontakt">✉️ Kontakt</a>
-</footer>
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    const en=el.getAttribute('data-en'); const de=el.getAttribute('data-de');
-    if(lang==='de' && de){ el.textContent = de; } else if(en){ el.textContent = en; }
-  });
-  if(window.__applyLangPhrases) window.__applyLangPhrases(lang);
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('active'));
-  document.querySelector('.lang button'+(lang==='de'?':last-child':':first-child')).classList.add('active');
-}
-document.addEventListener('DOMContentLoaded',()=>setLang(localStorage.getItem('lang')||'de'));
-</script>
-<script src="type.js"></script>
+  <div id="aurenixCmdk" class="aurenix-cmdk aurenix-card aurenix-glass aurenix-hidden">
+    <input id="aurenixCmdkInput" placeholder="Schnellsuche (Ctrl+K)…"/>
+    <ul id="aurenixCmdkList" class="aurenix-list"></ul>
+  </div>
 
+  <script src="./enhancements/assets/js/settings.js"></script>
+  <script src="./enhancements/assets/js/animated-bg.js"></script>
+  <script src="./enhancements/assets/js/cmdk.js"></script>
+  <script src="./enhancements/assets/js/docs.js"></script>
+  <script>
+    if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+  </script>
 </body></html>
