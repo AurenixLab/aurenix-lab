@@ -1,0 +1,8 @@
+/* core.css - neutral utilities & rotator (keeps your colors) */
+:root { --aur-rotator-duration: 2600ms; --aur-rotator-ease: cubic-bezier(.2,.8,.2,1); }
+.aur-rotator { display:inline-block; position:relative; white-space:nowrap; }
+.aur-rotator .aur-rot-item { position:absolute; inset:0 auto auto 0; opacity:0; transform: translateY(4px); transition: opacity 420ms var(--aur-rotator-ease), transform 420ms var(--aur-rotator-ease); }
+.aur-rotator .aur-rot-item.active { opacity:1; transform: translateY(0); }
+.aur-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; border:1px solid currentColor; opacity:.85; font-size:.92em; }
+.aur-top-right { position:fixed; right:12px; top:12px; z-index:999; }
+img[loading="lazy"]{ filter:saturate(1.01) }

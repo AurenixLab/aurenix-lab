@@ -1,32 +1,8 @@
 <!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Über uns</title><link rel='stylesheet' href='style.css'>
-  <link rel="stylesheet" href="./enhancements/assets/css/aurenix-upgrade.css">
+  <link rel="stylesheet" href="./core/core.css">
 </head><body>
-  <canvas id="aurenixCanvas" aria-hidden="true"></canvas>
-
-  <div id="aurenixSettings" class="aurenix-drawer aurenix-glass aurenix-card aurenix-hidden" role="dialog" aria-modal="true">
-    <header><strong>Einstellungen</strong><button class="aurenix-btn" id="aurenixCloseSettings">✖</button></header>
-    <div class="content">
-      <label class="aurenix-row"><span>Hintergrund</span>
-        <select id="aurenixBgMode">
-          <option value="off">Aus (Original)</option>
-          <option value="gradient">Gradient</option>
-          <option value="particles">Particles</option>
-          <option value="waves">Waves</option>
-        </select>
-      </label>
-      <label class="aurenix-row"><span>Animation</span>
-        <input type="checkbox" id="aurenixAnim" checked>
-      </label>
-    </div>
-  </div>
-
-  <div id="aurenixCmdk" class="aurenix-cmdk aurenix-card aurenix-glass aurenix-hidden">
-    <input id="aurenixCmdkInput" placeholder="Schnellsuche (Ctrl+K)…"/>
-    <ul id="aurenixCmdkList" class="aurenix-list"></ul>
-  </div>
-
 <header class="header"><div class="header-inner">
-  <div class="brand"><img src="assets/logo.png" alt="Aurenix"><div class="t">Aurenix Lab</div></div>
+  <div class="brand"><img src="assets/logo.png" alt="Aurenix" loading="lazy"><div class="t">Aurenix Lab</div></div>
   <nav class="nav">
     <div class="lang"><button onclick="setLang('en')">🇬🇧</button><button class="active" onclick="setLang('de')">🇩🇪</button></div>
     <a href="index.html"  data-en="Home" data-de="Start">Start</a>
@@ -40,7 +16,7 @@
 
 <section class="hero">
   <div>
-    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo">
+    <img class="logo-big" src="assets/logo.png" alt="Aurenix Logo" loading="lazy">
     <h1 class="type" data-phrases-en='["About"]' data-phrases-de='["\u00dcber uns"]'></h1><span class="cursor">|</span>
     <p data-en="" data-de=""></p>
     <div style="margin-top:12px"><a class="btn btn-gold" href="shop.html" data-en="Shop" data-de="Shop">Shop</a> <a class="btn btn-ghost" href="https://discord.gg/RNzyXTuepc" target="_blank">Discord</a></div>
@@ -54,11 +30,7 @@
 <script src="copy.js"></script>
 <script src="forms.js"></script>
 
-  <script src="./enhancements/assets/js/settings.js"></script>
+  <script src="./core/core.js" defer></script>
 
-  <script src="./enhancements/assets/js/animated-bg.js"></script>
-
-  <script src="./enhancements/assets/js/cmdk.js"></script>
-
-  <script>if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }</script>
+  <script>if("serviceWorker" in navigator){ navigator.serviceWorker.register("./core/sw.js"); }</script>
 </body></html>
